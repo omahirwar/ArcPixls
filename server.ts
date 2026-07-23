@@ -11,7 +11,10 @@ const PORT = 3000;
 
 app.use(express.json());
 
-const DATA_FILE = path.join(__dirname, 'wallets_database.json');
+// Safe path for both local/container & Vercel serverless environment
+const DATA_FILE = (process.env.VERCEL || fs.existsSync('/tmp'))
+  ? path.join('/tmp', 'wallets_database.json')
+  : path.join(__dirname, 'wallets_database.json');
 
 interface WalletRecord {
   wallet: string;
@@ -87,6 +90,8 @@ app.get('/api/whitelist/download', (_req, res) => {
   return res.status(200).send(csv);
 });
 
+export default app;
+
 // Serve static assets and files from root
 app.use(express.static(__dirname));
 
@@ -95,6 +100,8 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`ArcPixls server listening on http://0.0.0.0:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`ArcPixls server listening on http://0.0.0.0:${PORT}`);
+  });
+}
