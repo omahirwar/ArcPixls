@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#3b0764"/>
+  <path d="M7,22 h18 v10 h-18 z" fill="#581c87"/>
+  <!-- Purple Spiky Hair -->
+  <path d="M8,5 h16 v7 h-16 z" fill="#a855f7"/>
+  <rect x="6" y="8" width="3" height="3" fill="#c084fc"/>
+  <rect x="23" y="8" width="3" height="3" fill="#c084fc"/>
+  <!-- Goggles & Mask -->
+  <rect x="10" y="13" width="12" height="3" fill="#9333ea"/>
+  <rect x="11" y="14" width="4" height="1" fill="#e9d5ff"/>
+  <rect x="17" y="14" width="4" height="1" fill="#e9d5ff"/>
+  <path d="M10,17 h12 v5 h-12 z" fill="#18181b"/>
+</svg>

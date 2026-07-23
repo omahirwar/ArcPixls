@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcPixls — Mint TBA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive-fixes.css" />
+    <link rel="stylesheet" href="layout-fixes.css" />
+    <link rel="stylesheet" href="nft-theme.css" />
+  </head>
+  <body>
+    <!-- Circular Animated Preloader -->
+    <div id="loader-screen" class="loader-screen">
+      <div class="loader-box">
+        <div class="circular-progress">
+          <svg viewBox="0 0 120 120" class="progress-svg">
+            <circle class="circle-bg" cx="60" cy="60" r="50"></circle>
+            <circle class="circle-bar" id="circle-bar" cx="60" cy="60" r="50"></circle>
+          </svg>
+          <div class="progress-val" id="progress-text">0%</div>
+        </div>
+        <p class="loader-logo">ARCPIXLS</p>
+        <span class="loader-sub">INITIALIZING MATRIX...</span>
+      </div>
+    </div>
+
+    <div id="bg-floating-container" class="bg-floating-container" aria-hidden="true"></div>
+    <header class="nav">
+      <a class="brand" href="#top"><i></i> ARCPIXLS</a>
+      <nav><a href="#about">About</a><a href="#funding">Funding</a><a href="#traits">Traits</a><a href="#mint">Mint</a><a href="#roadmap">Roadmap</a><a href="#tokenomics">Tokenomics</a><a href="#faq">FAQ</a></nav>
+      <a class="notify" href="#mint">Join whitelist</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="about">
+        <div class="stars">✦　·_✧　·_✦　·_✧</div>
+        <p class="eyebrow">MINT PRICE & DATE TBA · 5,555 SUPPLY</p>
+        <h1><span>5,555 ARCPIXLS</span><br />WRITTEN, NOT DRAWN.</h1>
+        <p class="intro">Every ArcPixl is generated entirely by code — no two trait combinations repeat. Meet a few from the block below.</p>
+        <div class="hero-actions"><a class="primary" href="#mint">Mint Date TBA</a><a class="secondary" href="#funding">Community Backed</a></div>
+        <div class="facts"><span>Supply <b>5,555</b></span><span>Price <b>TBA</b></span><span>Chain <b>Arc Mainnet</b></span></div>
+        <div class="pal-lineup" aria-label="ArcPixls NFT previews">
+          <figure class="nft-card"><img src="assets/nfts/1.svg" alt="ArcPixls Cyber NFT #1" /></figure>
+          <figure class="nft-card"><img src="assets/nfts/2.svg" alt="ArcPixls Pixel NFT #2" /></figure>
+          <figure class="nft-card"><img src="assets/nfts/3.svg" alt="ArcPixls Glitch NFT #3" /></figure>
+          <figure class="nft-card"><img src="assets/nfts/4.svg" alt="ArcPixls Frog NFT #4" /></figure>
+          <figure class="nft-card"><img src="assets/nfts/5.svg" alt="ArcPixls 3D Glasses NFT #5" /></figure>
+          <figure class="nft-card"><img src="assets/nfts/6.svg" alt="ArcPixls Headphones NFT #6" /></figure>
+        </div>
+      </section>
+
+      <div class="ticker" aria-label="Collection highlights"><div class="ticker-track">5,555 SUPPLY <span>✦</span> $15,000 COMMUNITY FUNDED <span>✦</span> ARC MAINNET MINT <span>✦</span> ARCPIXLS NFT <span>✦</span> 20 CONTRIBUTORS <span>✦</span> PIXEL ART <span>✦</span> ON-CHAIN GENESIS <span>✦</span> &nbsp;&nbsp; 5,555 SUPPLY <span>✦</span> $15,000 COMMUNITY FUNDED <span>✦</span> ARC MAINNET MINT <span>✦</span> ARCPIXLS NFT <span>✦</span> 20 CONTRIBUTORS <span>✦</span> PIXEL ART <span>✦</span> ON-CHAIN GENESIS <span>✦</span></div></div>
+
+      <section class="story" id="funding">
+        <p class="section-tag">$15,000 Backed</p>
+        <h2>Arc Pixls is now backed by $15,000 in community funding.</h2>
+        <p>Built by a team of 20 dedicated contributors, we're investing in art, development, infrastructure, and long-term growth.</p>
+        <div class="trait-grid">
+          <div><b>$15K</b><span>Community Funding</span></div>
+          <div><b>20</b><span>Dedicated Contributors</span></div>
+          <div><b>5,555</b><span>Genesis Pixls</span></div>
+        </div>
+        <div class="funding-highlight-box" style="margin-top: 32px; padding: 24px; border: 1px solid #e4e4e7; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <p style="margin: 0 0 12px 0; font-family: 'Press Start 2P', monospace; font-size: 12px; color: #18181b; line-height: 1.6;">5,555 Genesis Pixls. Built for the Arc ecosystem.</p>
+          <p style="margin: 0 0 12px 0; color: #52525b; line-height: 1.6;">Mint goes live on <strong>Arc Mainnet</strong>. This is just the beginning.</p>
+          <p style="margin: 0; font-family: 'Space Mono', monospace; font-weight: bold; color: #18181b;">Stay tuned. <a href="https://x.com/ArcPixls" target="_blank" rel="noopener noreferrer" style="color: #18181b; text-decoration: underline;">@ArcPixls</a></p>
+        </div>
+      </section>
+
+      <section class="story" id="traits" style="border-top: 1px solid #e4e4e7;">
+        <p class="section-tag">Born from code</p>
+        <h2>No artist drew these.<br />A script did.</h2>
+        <p>Each ArcPixl starts as a number. That seed runs through an algorithmic generator which chooses its pixel body, visor, mouth and background — pixel by pixel.</p>
+        <div class="trait-grid"><div><b>5,555</b><span>unique seeds</span></div><div><b>70+</b><span>hand-picked traits</span></div><div><b>0</b><span>duplicate combinations</span></div></div>
+        <div class="collection-heading"><p class="section-tag">Collection preview</p><h2>Meet the ArcPixls.</h2></div>
+        <div class="nft-gallery" aria-label="ArcPixls collection preview">
+          <article class="gallery-card"><img src="assets/nfts/1.svg" alt="ArcPixls #0001" /><p>Legendary</p><b>#0001</b><small class="card-title">Cyber Horns</small></article>
+          <article class="gallery-card"><img src="assets/nfts/2.svg" alt="ArcPixls #0002" /><p>Epic</p><b>#0002</b><small class="card-title">White Ninja</small></article>
+          <article class="gallery-card"><img src="assets/nfts/3.svg" alt="ArcPixls #0003" /><p>Legendary</p><b>#0003</b><small class="card-title">Skull Bucket</small></article>
+          <article class="gallery-card"><img src="assets/nfts/4.svg" alt="ArcPixls #0004" /><p>Mythic</p><b>#0004</b><small class="card-title">Frog King</small></article>
+          <article class="gallery-card"><img src="assets/nfts/5.svg" alt="ArcPixls #0005" /><p>Rare</p><b>#0005</b><small class="card-title">3D Glasses</small></article>
+          <article class="gallery-card"><img src="assets/nfts/6.svg" alt="ArcPixls #0006" /><p>Rare</p><b>#0006</b><small class="card-title">Blue Headphones</small></article>
+          <article class="gallery-card"><img src="assets/nfts/7.svg" alt="ArcPixls #0007" /><p>Epic</p><b>#0007</b><small class="card-title">Red Void Mask</small></article>
+          <article class="gallery-card"><img src="assets/nfts/8.svg" alt="ArcPixls #0008" /><p>Common</p><b>#0008</b><small class="card-title">Beanie Gamer</small></article>
+          <article class="gallery-card"><img src="assets/nfts/9.svg" alt="ArcPixls #0009" /><p>Epic</p><b>#0009</b><small class="card-title">Ice Blue Skin</small></article>
+          <article class="gallery-card"><img src="assets/nfts/10.svg" alt="ArcPixls #0010" /><p>Rare</p><b>#0010</b><small class="card-title">Cyberpunk Visor</small></article>
+          <article class="gallery-card"><img src="assets/nfts/11.svg" alt="ArcPixls #0011" /><p>Legendary</p><b>#0011</b><small class="card-title">Yellow Hazard Mask</small></article>
+          <article class="gallery-card"><img src="assets/nfts/12.svg" alt="ArcPixls #0012" /><p>Common</p><b>#0012</b><small class="card-title">Spike Anime</small></article>
+          <article class="gallery-card"><img src="assets/nfts/13.svg" alt="ArcPixls #0013" /><p>Rare</p><b>#0013</b><small class="card-title">Purple Cyber Mask</small></article>
+          <article class="gallery-card"><img src="assets/nfts/14.svg" alt="ArcPixls #0014" /><p>Common</p><b>#0014</b><small class="card-title">Green Hair Sprout</small></article>
+          <article class="gallery-card"><img src="assets/nfts/15.svg" alt="ArcPixls #0015" /><p>Rare</p><b>#0015</b><small class="card-title">Black Cap Hacker</small></article>
+          <article class="gallery-card"><img src="assets/nfts/16.svg" alt="ArcPixls #0016" /><p>Rare</p><b>#0016</b><small class="card-title">Royal Blue Spikes</small></article>
+        </div>
+      </section>
+
+      <section class="mint" id="mint">
+        <p class="section-tag">Guaranteed whitelist</p><h2>Join the ArcPixls whitelist.</h2>
+        <p class="mint-copy">Submit your EVM wallet address to be considered for the guaranteed whitelist.</p>
+        <div class="follow-gate">
+          <a class="follow-button" href="https://x.com/ArcPixls" target="_blank" rel="noopener noreferrer">1. Follow @ArcPixls on X ↗</a>
+          <label class="follow-confirm"><input id="follow-confirm" type="checkbox" /> <span>I have followed @ArcPixls</span></label>
+        </div>
+        <form id="whitelist-form">
+          <label class="sr-only" for="wallet">EVM wallet address</label>
+          <input id="wallet" name="wallet" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-label="EVM wallet address" placeholder="0x... your EVM wallet address" required disabled />
+          <button type="submit" disabled>Join whitelist</button>
+        </form>
+        <p class="form-message" id="form-message" aria-live="polite"></p>
+        <small>Mint Price TBA · 5,555 total</small>
+      </section>
+      <section class="roadmap" id="roadmap"><p class="section-tag">Roadmap</p><h2>Small collection. Big energy.</h2><div><article><b>01</b><p>Mint opens</p></article><article><b>02</b><p>Holder-only surprises</p></article><article><b>03</b><p>The block grows</p></article></div></section>
+      <section class="faq" id="faq"><p class="section-tag">FAQ</p><h2>Good to know.</h2><details><summary>What is the supply?</summary><p>There are exactly 5,555 ArcPixls.</p></details><details><summary>How much is mint?</summary><p>Mint price is TBA.</p></details><details><summary>Will there be a native token?</summary><p>Yes! We are launching our own native token, allocating 44% of the total supply directly to ArcPixls NFT holders as an airdrop and reward pool.</p></details></section>
+      <section class="tokenomics" id="tokenomics">
+        <p class="section-tag">Native Token Launch</p>
+        <h2>Built for the<br />ArcPixls community.</h2>
+        <p class="tokenomics-intro">We are launching our own native token on Arc Mainnet with 44% dedicated directly to ArcPixls NFT holders!</p>
+        <div class="tokenomics-grid">
+          <article class="token-allocation holders"><b>44%</b><h3>NFT Holders Airdrop</h3><p>Reserved exclusively for ArcPixls Genesis NFT holders and community stakers.</p></article>
+          <article class="token-allocation team"><b>20%</b><h3>Liquidity & Market</h3><p>Locked liquidity on DEXs to ensure smooth trading & ecosystem depth.</p></article>
+          <article class="token-allocation team"><b>20%</b><h3>Team & Development</h3><p>12-month linear vesting schedule for core contributors and long-term building.</p></article>
+          <article class="token-allocation team"><b>16%</b><h3>Ecosystem & Treasury</h3><p>Community grants, partnerships, and future ecosystem expansion.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>© 2026 ARCPIXLS · MADE FOR THE BLOCK</span>
+      <button id="owner-panel-btn" class="owner-link">⚡ Owner Panel (View Submissions)</button>
+    </footer>
+
+    <!-- Owner Whitelist Modal -->
+    <div id="owner-modal" class="owner-modal" aria-hidden="true">
+      <div class="owner-modal-content">
+        <button id="close-owner-modal" class="modal-close">&times;</button>
+        <h3>Submitted Whitelist Wallets</h3>
+        <p class="owner-modal-sub">All submitted addresses are saved automatically on the server.</p>
+        <div class="owner-stats">
+          Total Submitted: <strong id="owner-wallet-count">0</strong>
+        </div>
+        <div class="owner-actions">
+          <a href="/api/whitelist/download" target="_blank" class="download-csv-btn">📥 Download CSV File</a>
+          <button id="copy-wallets-btn" class="copy-btn">📋 Copy All Addresses</button>
+        </div>
+        <div id="owner-wallet-list" class="owner-wallet-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

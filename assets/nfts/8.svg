@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#1e1b4b"/>
+  <path d="M7,22 h18 v10 h-18 z" fill="#1e293b"/>
+  <path d="M10,12 h12 v10 h-12 z" fill="#fde047"/>
+  <!-- Orange Beanie -->
+  <path d="M8,6 h16 v7 h-16 z" fill="#ea580c"/>
+  <rect x="8" y="11" width="16" height="2" fill="#c2410c"/>
+  <!-- Visor Glasses -->
+  <rect x="10" y="14" width="12" height="3" fill="#09090b"/>
+  <rect x="11" y="15" width="10" height="1" fill="#f97316"/>
+  <!-- Smile -->
+  <rect x="15" y="19" width="3" height="1" fill="#7c2d12"/>
+</svg>

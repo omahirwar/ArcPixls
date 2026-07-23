@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#0c4a6e"/>
+  <path d="M7,22 h18 v10 h-18 z" fill="#0f172a"/>
+  <!-- Head -->
+  <path d="M10,12 h12 v10 h-12 z" fill="#fed7aa"/>
+  <!-- Cyan Hair -->
+  <path d="M9,6 h14 v7 h-14 z" fill="#06b6d4"/>
+  <rect x="8" y="8" width="2" height="3" fill="#0891b2"/>
+  <rect x="22" y="8" width="2" height="3" fill="#0891b2"/>
+  <!-- Blue Headphones -->
+  <path d="M10,4 h12 v2 h-12 z" fill="#0284c7"/>
+  <rect x="8" y="13" width="3" height="6" fill="#0284c7"/>
+  <rect x="21" y="13" width="3" height="6" fill="#0284c7"/>
+  <!-- Eyes -->
+  <rect x="13" y="15" width="2" height="2" fill="#1e293b"/>
+  <rect x="18" y="15" width="2" height="2" fill="#1e293b"/>
+  <!-- Mouth -->
+  <rect x="15" y="19" width="3" height="1" fill="#ea580c"/>
+</svg>

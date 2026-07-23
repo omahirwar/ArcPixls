@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#1e293b"/>
+  <path d="M7,22 h18 v10 h-18 z" fill="#14532d"/>
+  <path d="M10,12 h12 v10 h-12 z" fill="#fde047"/>
+  <!-- Spiky Black Hair -->
+  <path d="M7,5 h18 v7 h-18 z" fill="#09090b"/>
+  <rect x="6" y="7" width="3" height="3" fill="#09090b"/>
+  <rect x="23" y="7" width="3" height="3" fill="#09090b"/>
+  <rect x="11" y="3" width="3" height="3" fill="#09090b"/>
+  <rect x="18" y="3" width="3" height="3" fill="#09090b"/>
+  <!-- Eyes -->
+  <rect x="12" y="15" width="2" height="2" fill="#09090b"/>
+  <rect x="18" y="15" width="2" height="2" fill="#09090b"/>
+</svg>

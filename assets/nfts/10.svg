@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#701a75"/>
+  <path d="M7,22 h18 v10 h-18 z" fill="#3f2305"/>
+  <path d="M10,12 h12 v10 h-12 z" fill="#fed7aa"/>
+  <!-- Black Snapback -->
+  <path d="M7,7 h18 v5 h-18 z" fill="#09090b"/>
+  <rect x="5" y="11" width="10" height="2" fill="#18181b"/>
+  <!-- Magenta Visor -->
+  <rect x="10" y="14" width="12" height="3" fill="#d946ef"/>
+  <rect x="11" y="15" width="10" height="1" fill="#f472b6"/>
+</svg>
