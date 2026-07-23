@@ -1,14 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#1e293b"/>
-  <path d="M7,22 h18 v10 h-18 z" fill="#14532d"/>
-  <path d="M10,12 h12 v10 h-12 z" fill="#fde047"/>
-  <!-- Spiky Black Hair -->
-  <path d="M7,5 h18 v7 h-18 z" fill="#09090b"/>
-  <rect x="6" y="7" width="3" height="3" fill="#09090b"/>
-  <rect x="23" y="7" width="3" height="3" fill="#09090b"/>
-  <rect x="11" y="3" width="3" height="3" fill="#09090b"/>
-  <rect x="18" y="3" width="3" height="3" fill="#09090b"/>
-  <!-- Eyes -->
-  <rect x="12" y="15" width="2" height="2" fill="#09090b"/>
-  <rect x="18" y="15" width="2" height="2" fill="#09090b"/>
+  <rect width="32" height="32" fill="#ffffff"/>
+  <path d="M7,20 h18 v12 h-18 z" fill="#121218"/>
+  <path d="M9,21 h14 v11 h-14 z" fill="#1c1c24"/>
+  <rect x="15" y="22" width="2" height="10" fill="#09090b"/>
+
+  <path d="M9,9 h14 v12 h-14 z" fill="#0d0d14"/>
+
+  <path d="M8,6 h3 v4 h-3 z" fill="#e2e8f0"/>
+  <path d="M7,4 h2 v3 h-2 z" fill="#ffffff"/>
+  <path d="M21,6 h3 v4 h-3 z" fill="#e2e8f0"/>
+  <path d="M23,4 h2 v3 h-2 z" fill="#ffffff"/>
+
+  <path d="M10,13 h12 v6 h-12 z" fill="#050508"/>
+
+  <!-- Red Glowing XX Eyes -->
+  <rect x="12" y="14" width="1" height="1" fill="#ef4444"/>
+  <rect x="14" y="14" width="1" height="1" fill="#ef4444"/>
+  <rect x="13" y="15" width="1" height="1" fill="#f87171"/>
+  <rect x="12" y="16" width="1" height="1" fill="#ef4444"/>
+  <rect x="14" y="16" width="1" height="1" fill="#ef4444"/>
+
+  <rect x="17" y="14" width="1" height="1" fill="#ef4444"/>
+  <rect x="19" y="14" width="1" height="1" fill="#ef4444"/>
+  <rect x="18" y="15" width="1" height="1" fill="#f87171"/>
+  <rect x="17" y="16" width="1" height="1" fill="#ef4444"/>
+  <rect x="19" y="16" width="1" height="1" fill="#ef4444"/>
 </svg>

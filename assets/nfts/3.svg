@@ -1,20 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
-  <!-- Background -->
-  <rect width="32" height="32" fill="#2e1065"/>
-  <!-- Purple Hoodie -->
-  <path d="M7,22 h18 v10 h-18 z" fill="#3b0764"/>
-  <path d="M11,22 h10 v10 h-10 z" fill="#581c87"/>
-  <!-- Head Shadow -->
-  <path d="M10,13 h12 v9 h-12 z" fill="#1e1b4b"/>
-  <!-- Skull Mask -->
-  <path d="M11,16 h10 v6 h-10 z" fill="#f8fafc"/>
-  <rect x="12" y="17" width="2" height="2" fill="#09090b"/>
-  <rect x="18" y="17" width="2" height="2" fill="#09090b"/>
-  <rect x="14" y="20" width="1" height="2" fill="#09090b"/>
-  <rect x="16" y="20" width="1" height="2" fill="#09090b"/>
-  <!-- Purple Bucket Hat -->
-  <path d="M7,11 h18 v3 h-18 z" fill="#a855f7"/>
-  <path d="M9,6 h14 v6 h-14 z" fill="#7e22ce"/>
-  <!-- Logo on Hat -->
-  <rect x="14" y="8" width="4" height="2" fill="#f43f5e"/>
+  <!-- Clean White Background with subtle particles -->
+  <rect width="32" height="32" fill="#ffffff"/>
+  <rect x="5" y="8" width="1" height="1" fill="#c084fc" opacity="0.4"/>
+  <rect x="26" y="5" width="1" height="1" fill="#e4e4e7"/>
+  <rect x="28" y="22" width="1" height="1" fill="#c084fc" opacity="0.5"/>
+
+  <!-- Dark Purple Hoodie -->
+  <path d="M7,20 h18 v12 h-18 z" fill="#3b0764"/>
+  <path d="M9,21 h14 v11 h-14 z" fill="#581c87"/>
+  <rect x="15" y="22" width="2" height="10" fill="#1e1b4b"/>
+  <rect x="14" y="23" width="1" height="6" fill="#a855f7"/>
+  <rect x="17" y="23" width="1" height="6" fill="#a855f7"/>
+
+  <!-- Skin & Head -->
+  <path d="M10,11 h12 v9 h-12 z" fill="#d97706"/>
+  <path d="M11,12 h10 v8 h-10 z" fill="#f59e0b"/>
+
+  <!-- Black Mask -->
+  <path d="M11,16 h10 v5 h-10 z" fill="#121218"/>
+
+  <!-- Purple Tinted Sunglasses -->
+  <rect x="10" y="13" width="12" height="3" fill="#09090b"/>
+  <rect x="11" y="14" width="4" height="1" fill="#d946ef"/>
+  <rect x="17" y="14" width="4" height="1" fill="#d946ef"/>
+
+  <!-- White Bucket Hat -->
+  <path d="M7,10 h18 v3 h-18 z" fill="#e4e4e7"/>
+  <path d="M9,5 h14 v6 h-14 z" fill="#ffffff"/>
+  <!-- Purple Emblem on Hat -->
+  <rect x="14" y="7" width="4" height="3" fill="#9333ea"/>
+  <rect x="15" y="8" width="2" height="1" fill="#ffffff"/>
 </svg>

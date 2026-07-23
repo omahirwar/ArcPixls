@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#14532d"/>
-  <!-- Yellow Hazard Hoodie & Suit -->
-  <path d="M7,22 h18 v10 h-18 z" fill="#eab308"/>
-  <path d="M8,9 h16 v13 h-16 z" fill="#facc15"/>
-  <!-- Dark Visor & Filter Mask -->
-  <rect x="10" y="13" width="12" height="4" fill="#0284c7"/>
-  <rect x="11" y="14" width="10" height="2" fill="#38bdf8"/>
-  <rect x="12" y="18" width="8" height="4" fill="#18181b"/>
-  <rect x="14" y="19" width="4" height="2" fill="#71717a"/>
+  <rect width="32" height="32" fill="#ffffff"/>
+  <path d="M7,20 h18 v12 h-18 z" fill="#7f1d1d"/>
+  <path d="M9,21 h14 v11 h-14 z" fill="#991b1b"/>
+  <rect x="15" y="22" width="2" height="10" fill="#450a0a"/>
+
+  <path d="M8,6 h16 v15 h-16 z" fill="#b91c1c"/>
+  <path d="M9,5 h14 v15 h-14 z" fill="#dc2626"/>
+
+  <path d="M11,10 h10 v10 h-10 z" fill="#f8fafc"/>
+  <path d="M12,9 h8 v11 h-8 z" fill="#ffffff"/>
+
+  <path d="M13,15 h6 v3 h-6 z" fill="#09090b"/>
+  <rect x="14" y="16" width="4" height="2" fill="#18181b"/>
+  <rect x="15" y="11" width="2" height="2" fill="#eab308"/>
 </svg>

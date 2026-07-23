@@ -1,226 +1,198 @@
 [
   {
     "id": "0001",
-    "name": "ArcPixl #0001 — Cyber Horns",
+    "name": "ArcPixl #0001 — Black Cap Hacker",
     "image": "assets/nfts/1.svg",
-    "rarity": "Legendary",
+    "rarity": "Rare",
     "traits": {
-      "Headwear": "Cyber Horns Helmet",
-      "Eyes": "Green XX Pixels",
+      "Headwear": "Black Snapback Cap",
+      "Eyes": "Focused Pixel",
       "Clothing": "Dark Tech Hoodie",
-      "Accessory": "Neon Face Mask",
-      "Expression": "Cybernetic"
+      "Accessory": "Black Mask & Gold Earring",
+      "Expression": "Stealth"
     },
-    "background": "Cyber Purple"
+    "background": "Clean White"
   },
   {
     "id": "0002",
-    "name": "ArcPixl #0002 — White Ninja",
+    "name": "ArcPixl #0002 — Green Spikes",
     "image": "assets/nfts/2.svg",
-    "rarity": "Epic",
+    "rarity": "Common",
     "traits": {
-      "Headwear": "Spiky White Hair & Headband",
-      "Eyes": "Focused Pixel",
-      "Clothing": "Black Stealth Hoodie",
-      "Accessory": "Black Face Mask",
+      "Headwear": "Spiky Green Hair",
+      "Eyes": "Pixel Brown",
+      "Clothing": "Dark Green Hoodie",
+      "Accessory": "Yellow Sleeve Badge",
       "Expression": "Determined"
     },
-    "background": "Midnight Violet"
+    "background": "Clean White"
   },
   {
     "id": "0003",
-    "name": "ArcPixl #0003 — Skull Bucket",
+    "name": "ArcPixl #0003 — White Bucket Hat",
     "image": "assets/nfts/3.svg",
     "rarity": "Legendary",
     "traits": {
-      "Headwear": "Purple Logo Bucket Hat",
-      "Eyes": "Dark Shadow",
+      "Headwear": "White Logo Bucket Hat",
+      "Eyes": "Purple Tinted Glasses",
       "Clothing": "Deep Purple Hoodie",
-      "Accessory": "Skull Mask",
+      "Accessory": "Black Face Mask",
       "Expression": "Mysterious"
     },
-    "background": "Arc Pixel Night"
+    "background": "Clean White"
   },
   {
     "id": "0004",
-    "name": "ArcPixl #0004 — Frog King",
+    "name": "ArcPixl #0004 — Red Void Mask",
     "image": "assets/nfts/4.svg",
-    "rarity": "Mythic",
+    "rarity": "Epic",
     "traits": {
-      "Headwear": "Golden Pixel Crown",
-      "Eyes": "Wide Frog Eyes",
-      "Clothing": "Purple Royal Hoodie",
-      "Accessory": "Green Amphibian Skin",
-      "Expression": "Regal Smile"
+      "Headwear": "Crimson Red Hood",
+      "Eyes": "White Face Plate",
+      "Clothing": "Red Tactical Hoodie",
+      "Accessory": "Dark Oval Mask Slit",
+      "Expression": "Hollow"
     },
-    "background": "Emerald Twilight"
+    "background": "Clean White"
   },
   {
     "id": "0005",
-    "name": "ArcPixl #0005 — 3D Glasses",
+    "name": "ArcPixl #0005 — Blue Headphones",
     "image": "assets/nfts/5.svg",
     "rarity": "Rare",
     "traits": {
-      "Headwear": "Brown Beanie",
-      "Eyes": "Anaglyph 3D Glasses",
-      "Clothing": "Dark Grey Hoodie",
-      "Accessory": "Clean Stubble",
-      "Expression": "Chill"
+      "Headwear": "Spiky Blue Hair",
+      "Eyes": "Dark Eyes",
+      "Clothing": "Dark Purple Hoodie",
+      "Accessory": "Cyan Over-Ear Headphones",
+      "Expression": "Listening"
     },
-    "background": "Neon City Blue"
+    "background": "Clean White"
   },
   {
     "id": "0006",
-    "name": "ArcPixl #0006 — Blue Headphones",
+    "name": "ArcPixl #0006 — Black Spikes",
     "image": "assets/nfts/6.svg",
-    "rarity": "Rare",
+    "rarity": "Common",
     "traits": {
-      "Headwear": "Cyan Blue Hair",
-      "Eyes": "Side Glance",
-      "Clothing": "Dark Zip Hoodie",
-      "Accessory": "Over-Ear Blue Headphones",
-      "Expression": "Listening"
+      "Headwear": "Spiky Black Hair",
+      "Eyes": "Dark Eyes",
+      "Clothing": "Dark Green Hoodie",
+      "Accessory": "Green Drawstrings",
+      "Expression": "Calm"
     },
-    "background": "Sky Twilight"
+    "background": "Clean White"
   },
   {
     "id": "0007",
-    "name": "ArcPixl #0007 — Red Void Mask",
+    "name": "ArcPixl #0007 — Cyber Horns",
     "image": "assets/nfts/7.svg",
-    "rarity": "Epic",
+    "rarity": "Mythic",
     "traits": {
-      "Headwear": "Crimson Hoodie",
-      "Eyes": "Pink Glowing Slits",
-      "Clothing": "Red Tactical Hoodie",
-      "Accessory": "Full Void Mask",
-      "Expression": "Shadow"
+      "Headwear": "Black Horned Helmet",
+      "Eyes": "Glowing Green XX Visor",
+      "Clothing": "Black Tech Hoodie",
+      "Accessory": "Yellow Sleeve Badge",
+      "Expression": "Cybernetic"
     },
-    "background": "Deep Crimson"
+    "background": "Clean White"
   },
   {
     "id": "0008",
-    "name": "ArcPixl #0008 — Beanie Gamer",
-    "image": "assets/nfts/8.svg",
-    "rarity": "Common",
+    "name": "ArcPixl #0008 — Stealth Hacker",
+    "image": "assets/nfts/1.svg",
+    "rarity": "Rare",
     "traits": {
-      "Headwear": "Orange Knit Beanie",
-      "Eyes": "Black Visor Sunglasses",
-      "Clothing": "Orange Accent Hoodie",
-      "Accessory": "Earrings",
-      "Expression": "Cool"
+      "Headwear": "Black Snapback Cap",
+      "Eyes": "Focused Pixel",
+      "Clothing": "Dark Tech Hoodie",
+      "Accessory": "Gold Earring",
+      "Expression": "Infiltrator"
     },
-    "background": "Arc Blue"
+    "background": "Clean White"
   },
   {
     "id": "0009",
-    "name": "ArcPixl #0009 — Ice Blue Skin",
-    "image": "assets/nfts/9.svg",
-    "rarity": "Epic",
+    "name": "ArcPixl #0009 — Emerald Spikes",
+    "image": "assets/nfts/2.svg",
+    "rarity": "Common",
     "traits": {
-      "Headwear": "Dark Beanie",
-      "Eyes": "Cyan Glow",
-      "Clothing": "Dark Blue Hoodie",
-      "Accessory": "Frozen Skin Tint",
-      "Expression": "Frost"
+      "Headwear": "Spiky Green Hair",
+      "Eyes": "Pixel Brown",
+      "Clothing": "Dark Green Hoodie",
+      "Accessory": "Yellow Sleeve Badge",
+      "Expression": "Alert"
     },
-    "background": "Glacier Night"
+    "background": "Clean White"
   },
   {
     "id": "0010",
-    "name": "ArcPixl #0010 — Cyberpunk Visor",
-    "image": "assets/nfts/10.svg",
-    "rarity": "Rare",
+    "name": "ArcPixl #0010 — Purple Bucket Shade",
+    "image": "assets/nfts/3.svg",
+    "rarity": "Legendary",
     "traits": {
-      "Headwear": "Black Snapback",
-      "Eyes": "Magenta LED Visor",
-      "Clothing": "Brown Tactical Hoodie",
-      "Accessory": "Wireless Earpiece",
-      "Expression": "Slight Smile"
+      "Headwear": "White Bucket Hat",
+      "Eyes": "Purple Tinted Glasses",
+      "Clothing": "Purple Hoodie",
+      "Accessory": "Black Mask",
+      "Expression": "Silent"
     },
-    "background": "Sunset Magenta"
+    "background": "Clean White"
   },
   {
     "id": "0011",
-    "name": "ArcPixl #0011 — Yellow Hazard Mask",
-    "image": "assets/nfts/11.svg",
-    "rarity": "Legendary",
+    "name": "ArcPixl #0011 — Crimson Void",
+    "image": "assets/nfts/4.svg",
+    "rarity": "Epic",
     "traits": {
-      "Headwear": "Yellow Biohazard Hoodie",
-      "Eyes": "Cyan Glow Visor",
-      "Clothing": "Full Hazard Suit",
-      "Accessory": "Filter Mask",
-      "Expression": "Protected"
+      "Headwear": "Red Hood",
+      "Eyes": "Blank White Mask",
+      "Clothing": "Red Tactical Hoodie",
+      "Accessory": "Void Slit",
+      "Expression": "Mysterious"
     },
-    "background": "Toxic Glow"
+    "background": "Clean White"
   },
   {
     "id": "0012",
-    "name": "ArcPixl #0012 — Spike Anime",
-    "image": "assets/nfts/12.svg",
-    "rarity": "Common",
+    "name": "ArcPixl #0012 — Audio Beats",
+    "image": "assets/nfts/5.svg",
+    "rarity": "Rare",
     "traits": {
-      "Headwear": "Black Spiky Hair",
-      "Eyes": "Pixel Brown",
-      "Clothing": "Dark Green Hoodie",
-      "Accessory": "Collar Pin",
-      "Expression": "Calm"
+      "Headwear": "Spiky Blue Hair",
+      "Eyes": "Dark Eyes",
+      "Clothing": "Deep Purple Hoodie",
+      "Accessory": "Blue Headphones",
+      "Expression": "Chill"
     },
-    "background": "City Skyline"
+    "background": "Clean White"
   },
   {
     "id": "0013",
-    "name": "ArcPixl #0013 — Purple Cyber Mask",
-    "image": "assets/nfts/13.svg",
-    "rarity": "Rare",
+    "name": "ArcPixl #0013 — Dark Spikes",
+    "image": "assets/nfts/6.svg",
+    "rarity": "Common",
     "traits": {
-      "Headwear": "Purple Spiky Hair",
-      "Eyes": "Purple Pixel Goggles",
-      "Clothing": "Purple Tech Jacket",
-      "Accessory": "Neoprene Mask",
-      "Expression": "Subtle"
+      "Headwear": "Spiky Black Hair",
+      "Eyes": "Dark Eyes",
+      "Clothing": "Dark Green Hoodie",
+      "Accessory": "Green Drawstrings",
+      "Expression": "Focused"
     },
-    "background": "Violet Neon"
+    "background": "Clean White"
   },
   {
     "id": "0014",
-    "name": "ArcPixl #0014 — Green Hair Sprout",
-    "image": "assets/nfts/14.svg",
-    "rarity": "Common",
+    "name": "ArcPixl #0014 — XX Cyber Horns",
+    "image": "assets/nfts/7.svg",
+    "rarity": "Mythic",
     "traits": {
-      "Headwear": "Green Spiky Hair",
-      "Eyes": "Brown Pixel",
-      "Clothing": "Olive Green Hoodie",
-      "Accessory": "Gold Earring",
-      "Expression": "Relaxed"
+      "Headwear": "Cyber Horns Helmet",
+      "Eyes": "Green XX Eyes",
+      "Clothing": "Black Hoodie",
+      "Accessory": "Yellow Sleeve Badge",
+      "Expression": "System Root"
     },
-    "background": "Arc Forest"
-  },
-  {
-    "id": "0015",
-    "name": "ArcPixl #0015 — Black Cap Hacker",
-    "image": "assets/nfts/15.svg",
-    "rarity": "Rare",
-    "traits": {
-      "Headwear": "Black Cap with Violet Logo",
-      "Eyes": "Neutral Pixel",
-      "Clothing": "Black Cyber Hoodie",
-      "Accessory": "Microphone Earset",
-      "Expression": "Focused"
-    },
-    "background": "Obsidian"
-  },
-  {
-    "id": "0016",
-    "name": "ArcPixl #0016 — Royal Blue Spikes",
-    "image": "assets/nfts/16.svg",
-    "rarity": "Rare",
-    "traits": {
-      "Headwear": "Royal Blue Spiky Hair",
-      "Eyes": "Dark Eyes",
-      "Clothing": "White & Black Split Hoodie",
-      "Accessory": "Black Face Mask",
-      "Expression": "Silent"
-    },
-    "background": "Deep Space"
+    "background": "Clean White"
   }
 ]

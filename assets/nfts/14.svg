@@ -1,11 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#064e3b"/>
-  <path d="M7,22 h18 v10 h-18 z" fill="#15803d"/>
-  <path d="M10,12 h12 v10 h-12 z" fill="#fde047"/>
-  <!-- Bright Green Hair -->
-  <path d="M8,5 h16 v7 h-16 z" fill="#22c55e"/>
-  <rect x="14" y="2" width="4" height="4" fill="#4ade80"/>
-  <!-- Eyes -->
-  <rect x="12" y="15" width="2" height="2" fill="#09090b"/>
-  <rect x="18" y="15" width="2" height="2" fill="#09090b"/>
+  <rect width="32" height="32" fill="#ffffff"/>
+  <path d="M7,20 h18 v12 h-18 z" fill="#18181b"/>
+  <path d="M9,21 h14 v11 h-14 z" fill="#27272a"/>
+  <rect x="15" y="22" width="2" height="10" fill="#09090b"/>
+
+  <path d="M10,11 h12 v10 h-12 z" fill="#d97706"/>
+  <path d="M11,12 h10 v8 h-10 z" fill="#f59e0b"/>
+
+  <path d="M11,15 h10 v6 h-10 z" fill="#121218"/>
+
+  <path d="M8,5 h16 v7 h-16 z" fill="#09090b"/>
+  <path d="M9,4 h14 v3 h-14 z" fill="#18181b"/>
+
+  <path d="M10,4 h12 v2 h-12 z" fill="#ea580c"/>
+  <rect x="8" y="11" width="3" height="7" fill="#ea580c"/>
+  <rect x="9" y="12" width="2" height="5" fill="#f97316"/>
+  <rect x="21" y="11" width="3" height="7" fill="#ea580c"/>
+  <rect x="21" y="12" width="2" height="5" fill="#f97316"/>
 </svg>

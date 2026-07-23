@@ -1,11 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#082f49"/>
-  <path d="M7,22 h18 v10 h-18 z" fill="#1e293b"/>
-  <!-- Ice Skin -->
-  <path d="M10,12 h12 v10 h-12 z" fill="#bae6fd"/>
-  <!-- Beanie -->
-  <path d="M8,7 h16 v6 h-16 z" fill="#0f172a"/>
-  <!-- Glowing Eyes -->
-  <rect x="12" y="15" width="2" height="2" fill="#38bdf8"/>
-  <rect x="18" y="15" width="2" height="2" fill="#38bdf8"/>
+  <rect width="32" height="32" fill="#ffffff"/>
+  <rect x="5" y="8" width="1" height="1" fill="#c084fc" opacity="0.4"/>
+  <rect x="26" y="5" width="1" height="1" fill="#e4e4e7"/>
+  <rect x="28" y="22" width="1" height="1" fill="#c084fc" opacity="0.5"/>
+
+  <path d="M7,20 h18 v12 h-18 z" fill="#18181b"/>
+  <path d="M9,21 h14 v11 h-14 z" fill="#27272a"/>
+  <rect x="15" y="22" width="2" height="10" fill="#09090b"/>
+  <rect x="14" y="23" width="1" height="6" fill="#3f3f46"/>
+  <rect x="17" y="23" width="1" height="6" fill="#3f3f46"/>
+
+  <path d="M10,11 h12 v9 h-12 z" fill="#d97706"/>
+  <path d="M11,12 h10 v8 h-10 z" fill="#f59e0b"/>
+
+  <path d="M11,16 h10 v5 h-10 z" fill="#121218"/>
+
+  <rect x="10" y="13" width="12" height="3" fill="#09090b"/>
+  <rect x="11" y="14" width="4" height="1" fill="#06b6d4"/>
+  <rect x="17" y="14" width="4" height="1" fill="#06b6d4"/>
+
+  <path d="M7,10 h18 v3 h-18 z" fill="#e4e4e7"/>
+  <path d="M9,5 h14 v6 h-14 z" fill="#ffffff"/>
+  <rect x="14" y="7" width="4" height="3" fill="#0284c7"/>
+  <rect x="15" y="8" width="2" height="1" fill="#ffffff"/>
 </svg>
