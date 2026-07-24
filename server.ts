@@ -100,8 +100,31 @@ app.post(['/api/whitelist', '/whitelist'], async (req, res) => {
 });
 
 // GET Endpoint to inspect whitelist
-app.get(['/api/whitelist', '/whitelist'], (_req, res) => {
+app.get(['/api/whitelist', '/whitelist'], async (_req, res) => {
   const wallets = loadWallets();
+
+  try {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (blobToken) {
+      const { blobs } = await list({ prefix: 'whitelist/', token: blobToken });
+      if (blobs && blobs.length > 0) {
+        const seen = new Set(wallets.map(w => w.wallet.toLowerCase()));
+        for (const b of blobs) {
+          const rawWallet = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
+          if (!seen.has(rawWallet.toLowerCase())) {
+            seen.add(rawWallet.toLowerCase());
+            wallets.push({
+              wallet: rawWallet,
+              submittedAt: b.uploadedAt ? b.uploadedAt.toISOString() : new Date().toISOString()
+            });
+          }
+        }
+      }
+    }
+  } catch (blobErr) {
+    console.error('Vercel Blob List Error:', blobErr);
+  }
+
   return res.json({
     count: wallets.length,
     wallets: wallets
@@ -109,8 +132,31 @@ app.get(['/api/whitelist', '/whitelist'], (_req, res) => {
 });
 
 // GET Endpoint to download CSV file
-app.get(['/api/whitelist/download', '/whitelist/download'], (_req, res) => {
+app.get(['/api/whitelist/download', '/whitelist/download'], async (_req, res) => {
   const wallets = loadWallets();
+
+  try {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (blobToken) {
+      const { blobs } = await list({ prefix: 'whitelist/', token: blobToken });
+      if (blobs && blobs.length > 0) {
+        const seen = new Set(wallets.map(w => w.wallet.toLowerCase()));
+        for (const b of blobs) {
+          const rawWallet = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
+          if (!seen.has(rawWallet.toLowerCase())) {
+            seen.add(rawWallet.toLowerCase());
+            wallets.push({
+              wallet: rawWallet,
+              submittedAt: b.uploadedAt ? b.uploadedAt.toISOString() : new Date().toISOString()
+            });
+          }
+        }
+      }
+    }
+  } catch (blobErr) {
+    console.error('Vercel Blob List Error:', blobErr);
+  }
+
   let csv = 'Wallet Address,Submitted At\n';
   wallets.forEach(r => {
     csv += `"${r.wallet}","${r.submittedAt}"\n`;
