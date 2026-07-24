@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { put, list } from '@vercel/blob';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -62,7 +63,7 @@ app.get(['/api/health', '/health'], (_req, res) => {
 });
 
 // API Endpoint for Whitelist Submission
-app.post(['/api/whitelist', '/whitelist'], (req, res) => {
+app.post(['/api/whitelist', '/whitelist'], async (req, res) => {
   const wallets = loadWallets();
   const wallet = typeof req.body?.wallet === 'string' ? req.body.wallet.trim() : '';
 
@@ -79,6 +80,19 @@ app.post(['/api/whitelist', '/whitelist'], (req, res) => {
   const record: WalletRecord = { wallet, submittedAt: new Date().toISOString() };
   wallets.push(record);
   saveWallets(wallets);
+
+  // Save to Vercel Blob Storage under 'whitelist/<wallet>.json'
+  try {
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      await put(`whitelist/${normalized}.json`, JSON.stringify(record, null, 2), {
+        access: 'public',
+        addRandomSuffix: false,
+        contentType: 'application/json',
+      });
+    }
+  } catch (blobErr) {
+    console.error('Vercel Blob Upload Error:', blobErr);
+  }
 
   return res.status(201).json({ ok: true, submittedAt: record.submittedAt, total: wallets.length });
 });

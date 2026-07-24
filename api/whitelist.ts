@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { put, list } from '@vercel/blob';
 
 const DATA_FILE = path.join('/tmp', 'wallets_database.json');
 
@@ -15,7 +16,7 @@ function loadWallets(): WalletRecord[] {
       return JSON.parse(raw);
     }
   } catch (err) {
-    console.error('Error reading wallets:', err);
+    console.error('Error reading local wallets:', err);
   }
   return [];
 }
@@ -24,13 +25,13 @@ function saveWallets(wallets: WalletRecord[]) {
   try {
     fs.writeFileSync(DATA_FILE, JSON.stringify(wallets, null, 2), 'utf-8');
   } catch (err) {
-    console.error('Error saving wallets:', err);
+    console.error('Error saving local wallets:', err);
   }
 }
 
 const evmAddress = /^0x[a-fA-F0-9]{40}$/;
 
-export default function handler(req: any, res: any) {
+export default async function handler(req: any, res: any) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -65,13 +66,55 @@ export default function handler(req: any, res: any) {
     wallets.push(record);
     saveWallets(wallets);
 
+    // Save to Vercel Blob Storage under 'whitelist/<wallet>.json'
+    try {
+      if (process.env.BLOB_READ_WRITE_TOKEN) {
+        await put(`whitelist/${normalized}.json`, JSON.stringify(record, null, 2), {
+          access: 'public',
+          addRandomSuffix: false,
+          contentType: 'application/json',
+        });
+      }
+    } catch (blobErr) {
+      console.error('Vercel Blob Upload Error:', blobErr);
+    }
+
     return res.status(201).json({ ok: true, submittedAt: record.submittedAt, total: wallets.length });
   }
 
   if (req.method === 'GET') {
-    const wallets = loadWallets();
+    let wallets = loadWallets();
+
+    // Optionally load from Vercel Blob if available
+    try {
+      if (process.env.BLOB_READ_WRITE_TOKEN) {
+        const { blobs } = await list({ prefix: 'whitelist/' });
+        if (blobs && blobs.length > 0) {
+          const blobWallets = blobs.map(b => {
+            const rawName = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
+            return {
+              wallet: rawName,
+              submittedAt: b.uploadedAt ? b.uploadedAt.toISOString() : new Date().toISOString()
+            };
+          });
+          
+          // Merge with local wallets without duplicates
+          const seen = new Set(wallets.map(w => w.wallet.toLowerCase()));
+          for (const bw of blobWallets) {
+            if (!seen.has(bw.wallet.toLowerCase())) {
+              seen.add(bw.wallet.toLowerCase());
+              wallets.push(bw);
+            }
+          }
+        }
+      }
+    } catch (blobErr) {
+      console.error('Vercel Blob List Error:', blobErr);
+    }
+
     return res.status(200).json({ count: wallets.length, wallets });
   }
 
   return res.status(405).json({ error: 'Method not allowed' });
 }
+
