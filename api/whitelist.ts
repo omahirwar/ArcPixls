@@ -68,12 +68,16 @@ export default async function handler(req: any, res: any) {
 
     // Save to Vercel Blob Storage under 'whitelist/<wallet>.json'
     try {
-      if (process.env.BLOB_READ_WRITE_TOKEN) {
+      const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+      if (blobToken) {
         await put(`whitelist/${normalized}.json`, JSON.stringify(record, null, 2), {
           access: 'public',
           addRandomSuffix: false,
           contentType: 'application/json',
+          token: blobToken,
         });
+      } else {
+        console.warn('Vercel Blob warning: BLOB_READ_WRITE_TOKEN environment variable is missing.');
       }
     } catch (blobErr) {
       console.error('Vercel Blob Upload Error:', blobErr);
@@ -87,8 +91,9 @@ export default async function handler(req: any, res: any) {
 
     // Optionally load from Vercel Blob if available
     try {
-      if (process.env.BLOB_READ_WRITE_TOKEN) {
-        const { blobs } = await list({ prefix: 'whitelist/' });
+      const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+      if (blobToken) {
+        const { blobs } = await list({ prefix: 'whitelist/', token: blobToken });
         if (blobs && blobs.length > 0) {
           const blobWallets = blobs.map(b => {
             const rawName = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');

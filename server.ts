@@ -83,11 +83,13 @@ app.post(['/api/whitelist', '/whitelist'], async (req, res) => {
 
   // Save to Vercel Blob Storage under 'whitelist/<wallet>.json'
   try {
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (blobToken) {
       await put(`whitelist/${normalized}.json`, JSON.stringify(record, null, 2), {
         access: 'public',
         addRandomSuffix: false,
         contentType: 'application/json',
+        token: blobToken,
       });
     }
   } catch (blobErr) {
