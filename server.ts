@@ -72,8 +72,18 @@ app.get(['/api/whitelist', '/whitelist'], async (_req, res) => {
   }
 });
 
-// GET Admin Whitelist Endpoint
-app.get(['/api/admin/whitelist', '/admin/whitelist'], async (_req, res) => {
+// GET Admin Whitelist Endpoint (Secured with ADMIN_SECRET)
+app.get(['/api/admin/whitelist', '/admin/whitelist'], async (req, res) => {
+  const adminSecret = process.env.ADMIN_SECRET;
+  if (!adminSecret) {
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
+
+  const keyParam = typeof req.query.key === 'string' ? req.query.key : null;
+  if (!keyParam || keyParam !== adminSecret) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
   try {
     const data = await getWhitelistedWallets();
     return res.json({
