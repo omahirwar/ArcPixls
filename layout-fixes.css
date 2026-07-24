@@ -507,3 +507,110 @@ html {
   color: #a3e635 !important;
   text-shadow: 0 0 8px rgba(163, 230, 53, 0.4);
 }
+
+/* Celebration Animations: Balloons, Sparklers, Fireworks */
+.celebration-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Floating Balloons (Gubbare) */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 44px;
+  height: 54px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  box-shadow: inset -6px -6px 12px rgba(0,0,0,0.2), inset 6px 6px 12px rgba(255,255,255,0.4);
+  animation: floatUp 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid inherit;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) rotate(12deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(-115vh) rotate(-12deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Sparkler / Fuljhadi Pixel Sparkles */
+.sparkler-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px currentColor;
+  animation: explodeParticle 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes explodeParticle {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Celebration Popup Message */
+.celebration-toast {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px) scale(0.9);
+  background: #18181b;
+  color: #a3e635;
+  border: 2px solid #a3e635;
+  box-shadow: 0 12px 32px rgba(163, 230, 53, 0.4), 0 0 20px rgba(0,0,0,0.8);
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  z-index: 100000;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.celebration-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+

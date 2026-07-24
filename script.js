@@ -172,6 +172,7 @@ form.addEventListener('submit', async (event) => {
 
     message.textContent = 'Success — your wallet is on the whitelist!';
     message.className = 'form-message success';
+    triggerCelebration();
     form.reset();
   } catch (error) {
     message.textContent = error.message || 'Could not submit right now. Please try again.';
@@ -211,4 +212,104 @@ if ('IntersectionObserver' in window) {
 } else {
   animatedElements.forEach(reveal);
 }
+
+/* Animated Celebration (Balloons, Fuljhadi/Sparklers & Fireworks) */
+function triggerCelebration() {
+  // 1. Toast Notification Banner
+  let toast = document.querySelector('.celebration-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'celebration-toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = '🎉 WHITELIST JOINED! 🚀<br><span style="font-size: 10px; color: #a3e635; display: inline-block; margin-top: 6px;">Wallet Successfully Added ✨</span>';
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 5000);
+
+  // 2. Canvas Confetti Explosions (via confetti library)
+  if (typeof window.confetti === 'function') {
+    // Left cannon burst
+    window.confetti({
+      particleCount: 70,
+      angle: 60,
+      spread: 65,
+      origin: { x: 0, y: 0.75 },
+      colors: ['#a3e635', '#ec4899', '#3b82f6', '#f59e0b', '#8b5cf6', '#10b981', '#ffffff']
+    });
+
+    // Right cannon burst
+    window.confetti({
+      particleCount: 70,
+      angle: 120,
+      spread: 65,
+      origin: { x: 1, y: 0.75 },
+      colors: ['#a3e635', '#ec4899', '#3b82f6', '#f59e0b', '#8b5cf6', '#10b981', '#ffffff']
+    });
+
+    // Fireworks star burst in center
+    setTimeout(() => {
+      window.confetti({
+        particleCount: 110,
+        spread: 100,
+        origin: { x: 0.5, y: 0.45 },
+        colors: ['#a3e635', '#ec4899', '#3b82f6', '#f59e0b', '#8b5cf6']
+      });
+    }, 350);
+  }
+
+  // 3. Floating Balloons (Gubbare)
+  const colors = ['#ec4899', '#3b82f6', '#a3e635', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#06b6d4'];
+  const balloonCount = 20;
+  const container = document.createElement('div');
+  container.className = 'celebration-container';
+  document.body.appendChild(container);
+
+  for (let i = 0; i < balloonCount; i++) {
+    setTimeout(() => {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.backgroundColor = color;
+      balloon.style.left = `${Math.random() * 90 + 5}%`;
+      const scale = 0.7 + Math.random() * 0.6;
+      const duration = 3.5 + Math.random() * 2.5;
+      balloon.style.animationDuration = `${duration}s`;
+      balloon.style.transform = `scale(${scale})`;
+      container.appendChild(balloon);
+
+      setTimeout(() => balloon.remove(), duration * 1000);
+    }, i * 160);
+  }
+
+  // 4. Sparkler / Fuljhadi Pixel Sparkles firing around form
+  const formEl = document.getElementById('whitelist-form');
+  if (formEl) {
+    const rect = formEl.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    for (let j = 0; j < 45; j++) {
+      const p = document.createElement('div');
+      p.className = 'sparkler-particle';
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      p.style.backgroundColor = color;
+      p.style.color = color;
+      p.style.left = `${centerX}px`;
+      p.style.top = `${centerY}px`;
+
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 80 + Math.random() * 180;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      p.style.setProperty('--dx', `${dx}px`);
+      p.style.setProperty('--dy', `${dy}px`);
+
+      container.appendChild(p);
+      setTimeout(() => p.remove(), 1200);
+    }
+  }
+
+  setTimeout(() => container.remove(), 7000);
+}
+
 
