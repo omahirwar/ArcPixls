@@ -93,12 +93,18 @@ app.get(['/api/whitelist/download', '/whitelist/download'], (_req, res) => {
   return res.status(200).send(csv);
 });
 
-// Serve static files
-app.use(express.static(__dirname));
+// Serve static files (handles both local dev and Vercel serverless execution)
+const rootDir = fs.existsSync(path.join(process.cwd(), 'index.html')) ? process.cwd() : __dirname;
+app.use(express.static(rootDir));
 
 // Fallback to index.html
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const indexPath = path.join(rootDir, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  }
 });
 
 export default app;
