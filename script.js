@@ -159,7 +159,10 @@ form.addEventListener('submit', async (event) => {
       try {
         data = JSON.parse(text);
       } catch (e) {
-        data = { error: 'Server returned an invalid response.' };
+        if (!response.ok) {
+          throw new Error(`Server returned status ${response.status}. Please check your deployment backend.`);
+        }
+        data = { error: 'Invalid response from server.' };
       }
     }
 
