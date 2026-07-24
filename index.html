@@ -127,27 +127,7 @@
     </main>
     <footer>
       <span>© 2026 ARCPIXLS · MADE FOR THE BLOCK</span>
-      <button id="owner-panel-btn" class="owner-link">⚡ Owner Panel (View Submissions)</button>
     </footer>
-
-    <!-- Owner Whitelist Modal -->
-    <div id="owner-modal" class="owner-modal" aria-hidden="true">
-      <div class="owner-modal-content">
-        <button id="close-owner-modal" class="modal-close">&times;</button>
-        <h3>Submitted Whitelist Wallets</h3>
-        <p class="owner-modal-sub">All submitted addresses are saved automatically on the server.</p>
-        <div class="owner-stats">
-          Total Submitted: <strong id="owner-wallet-count">0</strong>
-        </div>
-        <div class="owner-actions">
-          <a href="/api/whitelist/download" target="_blank" class="download-csv-btn">📥 Download CSV File</a>
-          <button id="copy-wallets-btn" class="copy-btn">📋 Copy All Addresses</button>
-        </div>
-        <div id="owner-wallet-list" class="owner-wallet-list">
-          <!-- Dynamically populated -->
-        </div>
-      </div>
-    </div>
 
     <script src="script.js"></script>
   </body>
