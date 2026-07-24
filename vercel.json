@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/whitelist/download",
+      "destination": "/api/whitelist/download"
+    },
+    {
+      "source": "/whitelist",
+      "destination": "/api/whitelist"
+    }
+  ]
+}
