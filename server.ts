@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { createServer as createViteServer } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -50,6 +51,7 @@ const evmAddress = /^0x[a-fA-F0-9]{40}$/;
 
 // API Endpoint for Whitelist Submission
 app.post('/api/whitelist', (req, res) => {
+  walletRecords = loadWallets();
   const wallet = typeof req.body?.wallet === 'string' ? req.body.wallet.trim() : '';
 
   if (!evmAddress.test(wallet)) {
@@ -72,6 +74,7 @@ app.post('/api/whitelist', (req, res) => {
 
 // GET Endpoint to inspect whitelist
 app.get('/api/whitelist', (_req, res) => {
+  walletRecords = loadWallets();
   return res.json({
     count: walletRecords.length,
     wallets: walletRecords
@@ -80,6 +83,7 @@ app.get('/api/whitelist', (_req, res) => {
 
 // GET Endpoint to download CSV file
 app.get('/api/whitelist/download', (_req, res) => {
+  walletRecords = loadWallets();
   let csv = 'Wallet Address,Submitted At\n';
   walletRecords.forEach(r => {
     csv += `"${r.wallet}","${r.submittedAt}"\n`;
@@ -90,18 +94,29 @@ app.get('/api/whitelist/download', (_req, res) => {
   return res.status(200).send(csv);
 });
 
+// Vite / static middleware setup
+async function setupFrontend() {
+  if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'spa',
+    });
+    app.use(vite.middlewares);
+  } else {
+    app.use(express.static(__dirname));
+    app.get('*', (_req, res) => {
+      res.sendFile(path.join(__dirname, 'index.html'));
+    });
+  }
+}
+
+setupFrontend();
+
 export default app;
-
-// Serve static assets and files from root
-app.use(express.static(__dirname));
-
-// Fallback to index.html for root request
-app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 if (!process.env.VERCEL) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`ArcPixls server listening on http://0.0.0.0:${PORT}`);
   });
 }
+

@@ -149,9 +149,25 @@ form.addEventListener('submit', async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ wallet })
     });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Submission failed.');
-    message.textContent = 'Success — your wallet is on the whitelist list.';
+
+    let data;
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        data = { error: 'Server returned an invalid response.' };
+      }
+    }
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Submission failed.');
+    }
+
+    message.textContent = 'Success — your wallet is on the whitelist!';
     message.className = 'form-message success';
     form.reset();
   } catch (error) {
