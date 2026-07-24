@@ -1,38 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { put, list } from '@vercel/blob';
-
-const DATA_FILE = path.join('/tmp', 'wallets_database.json');
-
-interface WalletRecord {
-  wallet: string;
-  submittedAt: string;
-}
-
-function loadWallets(): WalletRecord[] {
-  try {
-    if (fs.existsSync(DATA_FILE)) {
-      const raw = fs.readFileSync(DATA_FILE, 'utf-8');
-      return JSON.parse(raw);
-    }
-  } catch (err) {
-    console.error('Error reading local wallets:', err);
-  }
-  return [];
-}
-
-function saveWallets(wallets: WalletRecord[]) {
-  try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(wallets, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('Error saving local wallets:', err);
-  }
-}
-
-const evmAddress = /^0x[a-fA-F0-9]{40}$/;
+import { insertWallet, getWhitelistedWallets, EVM_REGEX } from '../lib/db.js';
 
 export default async function handler(req: any, res: any) {
-  // CORS headers
+  // Preserve CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -41,85 +10,58 @@ export default async function handler(req: any, res: any) {
     return res.status(200).end();
   }
 
+  // POST: Register a new EVM wallet in Neon PostgreSQL
   if (req.method === 'POST') {
-    let body = req.body;
-    if (typeof body === 'string') {
-      try {
-        body = JSON.parse(body);
-      } catch (e) {
-        body = {};
-      }
-    }
-    const wallet = typeof body?.wallet === 'string' ? body.wallet.trim() : '';
-
-    if (!evmAddress.test(wallet)) {
-      return res.status(400).json({ error: 'Enter a valid EVM address (0x followed by 40 hex characters).' });
-    }
-
-    const wallets = loadWallets();
-    const normalized = wallet.toLowerCase();
-    if (wallets.some(r => r.wallet.toLowerCase() === normalized)) {
-      return res.status(409).json({ error: 'This wallet was already submitted.' });
-    }
-
-    const record: WalletRecord = { wallet, submittedAt: new Date().toISOString() };
-    wallets.push(record);
-    saveWallets(wallets);
-
-    // Save to Vercel Blob Storage under 'whitelist/<wallet>.json'
     try {
-      const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
-      if (blobToken) {
-        await put(`whitelist/${normalized}.json`, JSON.stringify(record, null, 2), {
-          access: 'public',
-          addRandomSuffix: false,
-          contentType: 'application/json',
-          token: blobToken,
-        });
-      } else {
-        console.warn('Vercel Blob warning: BLOB_READ_WRITE_TOKEN environment variable is missing.');
-      }
-    } catch (blobErr) {
-      console.error('Vercel Blob Upload Error:', blobErr);
-    }
-
-    return res.status(201).json({ ok: true, submittedAt: record.submittedAt, total: wallets.length });
-  }
-
-  if (req.method === 'GET') {
-    let wallets = loadWallets();
-
-    // Optionally load from Vercel Blob if available
-    try {
-      const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
-      if (blobToken) {
-        const { blobs } = await list({ prefix: 'whitelist/', token: blobToken });
-        if (blobs && blobs.length > 0) {
-          const blobWallets = blobs.map(b => {
-            const rawName = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
-            return {
-              wallet: rawName,
-              submittedAt: b.uploadedAt ? b.uploadedAt.toISOString() : new Date().toISOString()
-            };
-          });
-          
-          // Merge with local wallets without duplicates
-          const seen = new Set(wallets.map(w => w.wallet.toLowerCase()));
-          for (const bw of blobWallets) {
-            if (!seen.has(bw.wallet.toLowerCase())) {
-              seen.add(bw.wallet.toLowerCase());
-              wallets.push(bw);
-            }
-          }
+      let body = req.body;
+      if (typeof body === 'string') {
+        try {
+          body = JSON.parse(body);
+        } catch (e) {
+          body = {};
         }
       }
-    } catch (blobErr) {
-      console.error('Vercel Blob List Error:', blobErr);
-    }
 
-    return res.status(200).json({ count: wallets.length, wallets });
+      const wallet = typeof body?.wallet === 'string' ? body.wallet.trim() : '';
+
+      // Validate EVM wallet address format
+      if (!EVM_REGEX.test(wallet)) {
+        return res.status(400).json({ error: 'Enter a valid EVM address (0x followed by 40 hex characters).' });
+      }
+
+      // Insert into Neon PostgreSQL
+      const record = await insertWallet(wallet);
+
+      // Get updated count
+      const { count } = await getWhitelistedWallets();
+
+      return res.status(201).json({
+        ok: true,
+        submittedAt: record.submittedAt,
+        total: count,
+      });
+    } catch (err: any) {
+      if (err.message === 'DUPLICATE_WALLET' || err.code === '23505') {
+        return res.status(409).json({ error: 'This wallet was already submitted.' });
+      }
+      if (err.message === 'INVALID_ADDRESS') {
+        return res.status(400).json({ error: 'Enter a valid EVM address (0x followed by 40 hex characters).' });
+      }
+      console.error('Error inserting wallet into Neon PostgreSQL:', err);
+      return res.status(500).json({ error: 'Database error while saving wallet submission.' });
+    }
+  }
+
+  // GET: Fetch all whitelisted wallets ordered by submitted_at DESC
+  if (req.method === 'GET') {
+    try {
+      const data = await getWhitelistedWallets();
+      return res.status(200).json(data);
+    } catch (err) {
+      console.error('Error fetching whitelist from Neon PostgreSQL:', err);
+      return res.status(500).json({ error: 'Database error while fetching whitelist.' });
+    }
   }
 
   return res.status(405).json({ error: 'Method not allowed' });
 }
-

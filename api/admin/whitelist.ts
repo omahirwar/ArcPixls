@@ -12,19 +12,17 @@ export default async function handler(req: any, res: any) {
 
   if (req.method === 'GET') {
     try {
-      const { wallets } = await getWhitelistedWallets();
-
-      let csv = 'Wallet Address,Submitted At\n';
-      wallets.forEach((r) => {
-        csv += `"${r.wallet}","${r.submittedAt}"\n`;
+      const data = await getWhitelistedWallets();
+      return res.status(200).json({
+        count: data.count,
+        wallets: data.wallets.map(w => ({
+          wallet: w.wallet,
+          submittedAt: w.submittedAt
+        }))
       });
-
-      res.setHeader('Content-Type', 'text/csv');
-      res.setHeader('Content-Disposition', 'attachment; filename="arcpixls_whitelisted_wallets.csv"');
-      return res.status(200).send(csv);
     } catch (err) {
-      console.error('CSV Download Error:', err);
-      return res.status(500).json({ error: 'Failed to generate CSV download from Neon PostgreSQL.' });
+      console.error('Admin Whitelist Error:', err);
+      return res.status(500).json({ error: 'Failed to retrieve whitelist records from Neon PostgreSQL.' });
     }
   }
 

@@ -2,6 +2,10 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/admin/whitelist",
+      "destination": "/api/admin/whitelist"
+    },
+    {
       "source": "/whitelist/download",
       "destination": "/api/whitelist/download"
     },
