@@ -222,9 +222,23 @@ function triggerCelebration() {
     toast.className = 'celebration-toast';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = '🎉 WHITELIST JOINED! 🚀<br><span style="font-size: 10px; color: #a3e635; display: inline-block; margin-top: 6px;">Wallet Successfully Added ✨</span>';
+  toast.innerHTML = `
+    <div class="toast-inner">
+      <div class="toast-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a3e635" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="toast-body">
+        <div class="toast-title">WHITELIST JOINED</div>
+        <div class="toast-subtitle">Wallet successfully registered & verified</div>
+      </div>
+      <div class="toast-badge">CONFIRMED</div>
+    </div>
+  `;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 5000);
+  if (window.toastTimeout) clearTimeout(window.toastTimeout);
+  window.toastTimeout = setTimeout(() => toast.classList.remove('show'), 5500);
 
   // 2. Canvas Confetti Explosions (via confetti library)
   if (typeof window.confetti === 'function') {
