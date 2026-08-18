@@ -130,7 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ wallet: fullAddress })
         });
-        const data = await response.json();
+        
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (jsonErr) {
+          data = { error: `Server error (${response.status})` };
+        }
 
         if (response.ok) {
           submitBtn.innerHTML = '<span>Registered!</span> ✓';
@@ -155,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Submission fetch error:', err);
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>Join Whitelist</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-        formMsg.textContent = '⚠️ Network error: Could not reach whitelist server. Please try again.';
+        formMsg.textContent = `⚠️ Network error (${err.message || 'connection failed'}). Please redeploy or check connection.`;
         formMsg.className = 'form-message error';
       }
     });
