@@ -1,4 +1,4 @@
-import { getWhitelistedWallets } from '../../lib/db.js';
+import { getWhitelistedWallets } from '../../lib/db';
 
 export default async function handler(req: any, res: any) {
   // Preserve CORS headers

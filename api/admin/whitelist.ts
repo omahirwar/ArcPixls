@@ -1,4 +1,4 @@
-import { getWhitelistedWallets } from '../../lib/db.js';
+import { getWhitelistedWallets } from '../../lib/db';
 
 /**
  * Serverless API handler to retrieve admin whitelist records.

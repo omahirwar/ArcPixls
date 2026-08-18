@@ -24,10 +24,25 @@ let sqlInitPromise: Promise<void> | null = null;
 export const EVM_REGEX = /^0x[a-fA-F0-9]{40}$/;
 
 /**
- * Helper to get active Blob token from environment
+ * Robust helper to retrieve active Blob token from environment variables.
+ * Checks BLOB_READ_WRITE_TOKEN, store-specific tokens (e.g. ONCHAINSAPE_BLOB_READ_WRITE_TOKEN),
+ * and any other valid Vercel Blob token.
  */
 function getBlobToken(): string | undefined {
-  return process.env.BLOB_READ_WRITE_TOKEN || process.env.VERCEL_BLOB_READ_WRITE_TOKEN;
+  // 1. Direct standard names
+  if (process.env.BLOB_READ_WRITE_TOKEN) return process.env.BLOB_READ_WRITE_TOKEN;
+  if (process.env.VERCEL_BLOB_READ_WRITE_TOKEN) return process.env.VERCEL_BLOB_READ_WRITE_TOKEN;
+
+  // 2. Search for any store-specific token created by Vercel
+  for (const [key, value] of Object.entries(process.env)) {
+    if (typeof value === 'string' && value.startsWith('vercel_blob_rw_')) {
+      return value;
+    }
+    if (key.endsWith('_READ_WRITE_TOKEN') && typeof value === 'string' && value.length > 10) {
+      return value;
+    }
+  }
+  return undefined;
 }
 
 /**
@@ -90,7 +105,6 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
   const blobToken = getBlobToken();
 
   let savedToBlob = false;
-  let blobError: Error | null = null;
 
   // 1. If Vercel Blob token is configured, save directly to Vercel Blob (Private or Public store)
   if (blobToken) {
@@ -105,7 +119,7 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
         if (checkErr.message === 'DUPLICATE_WALLET') {
           throw checkErr;
         }
-        // 404 / NotFoundError is expected when blob doesn't exist yet
+        // 404 / NotFound is expected when blob does not exist yet
       }
 
       // JSON payload formatted for Vercel Blob
@@ -120,6 +134,7 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
         blobResult = await put(blobPath, payload, {
           access: 'private',
           addRandomSuffix: false,
+          allowOverwrite: true,
           contentType: 'application/json',
           token: blobToken,
         });
@@ -129,6 +144,7 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
           blobResult = await put(blobPath, payload, {
             access: 'public',
             addRandomSuffix: false,
+            allowOverwrite: true,
             contentType: 'application/json',
             token: blobToken,
           });
@@ -138,16 +154,16 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
       }
 
       savedToBlob = true;
-      console.log(`[Vercel Blob] Saved wallet ${trimmed} to: ${blobResult.pathname || blobPath}`);
+      console.log(`[Vercel Blob] Successfully saved wallet ${trimmed} to: ${blobResult.pathname || blobPath}`);
     } catch (err: any) {
       if (err.message === 'DUPLICATE_WALLET') {
         throw err;
       }
       console.error('[Vercel Blob Save Error]:', err);
-      blobError = err;
+      throw err;
     }
   } else {
-    console.warn('[Vercel Blob] BLOB_READ_WRITE_TOKEN is not set in environment variables.');
+    console.warn('[Vercel Blob] No BLOB_READ_WRITE_TOKEN found in environment.');
   }
 
   // 2. Dual-save to Neon Postgres if configured

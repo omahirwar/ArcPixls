@@ -1,4 +1,4 @@
-import { insertWallet, getWhitelistedWallets, EVM_REGEX } from '../lib/db.js';
+import { insertWallet, getWhitelistedWallets, EVM_REGEX } from '../lib/db';
 
 export default async function handler(req: any, res: any) {
   // Preserve CORS headers
