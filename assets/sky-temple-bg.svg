@@ -1,0 +1,378 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1180" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Light Grey with subtle Pale Green Mist Sky Gradient -->
+    <linearGradient id="templeSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3f7f4"/>
+      <stop offset="35%" stop-color="#edf4ef"/>
+      <stop offset="65%" stop-color="#e3eee6"/>
+      <stop offset="85%" stop-color="#d9e7dc"/>
+      <stop offset="100%" stop-color="#cadacb"/>
+    </linearGradient>
+
+    <!-- Ancient Sage & Moss Stone Temple Gradients -->
+    <linearGradient id="templeStone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#84a98c"/>
+      <stop offset="40%" stop-color="#698e72"/>
+      <stop offset="80%" stop-color="#52796f"/>
+      <stop offset="100%" stop-color="#354f52"/>
+    </linearGradient>
+
+    <linearGradient id="templeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a3c4ab"/>
+      <stop offset="50%" stop-color="#88ad91"/>
+      <stop offset="100%" stop-color="#6e9477"/>
+    </linearGradient>
+
+    <!-- Glowing Bioluminescent Emerald & Mint Waterfalls -->
+    <linearGradient id="cyanWater" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#10b981" stop-opacity="0.85"/>
+      <stop offset="80%" stop-color="#059669" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Soft Cloud Gradients -->
+    <linearGradient id="cloudBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4e4d8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#e2eee5" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#edf5ef" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="cloudFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0f6f2" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#f7faf8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.99"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowCyanHigh" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="blur1"/>
+      <feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowSoft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="mistBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- SKY BACKGROUND -->
+  <rect width="2560" height="1180" fill="url(#templeSky)"/>
+
+  <!-- CELESTIAL STARS & EMERALD PARTICLES -->
+  <g fill="#16a34a">
+    <circle cx="180" cy="90" r="1.5" opacity="0.4"/>
+    <circle cx="340" cy="160" r="1" opacity="0.3"/>
+    <circle cx="520" cy="80" r="2" opacity="0.5"/>
+    <circle cx="790" cy="120" r="1.2" opacity="0.4"/>
+    <circle cx="1020" cy="60" r="1.5" opacity="0.5"/>
+    <circle cx="1280" cy="140" r="1" opacity="0.3"/>
+    <circle cx="1520" cy="80" r="1.8" opacity="0.5"/>
+    <circle cx="1840" cy="110" r="1.2" opacity="0.4"/>
+    <circle cx="2100" cy="70" r="2" opacity="0.5"/>
+    <circle cx="2380" cy="130" r="1.5" opacity="0.4"/>
+    <!-- Big Twinkle Star (Right) -->
+    <polygon points="2460,1050 2464,1060 2474,1064 2464,1068 2460,1078 2456,1068 2446,1064 2456,1060" fill="#34d399" filter="url(#glowCyanHigh)"/>
+  </g>
+
+  <!-- DISTANT FLOATING ISLETS & SHRINES (BACKGROUND) -->
+  <g opacity="0.55">
+    <!-- Far Left Island -->
+    <path d="M540 460 Q600 440 680 450 Q730 480 700 520 Q640 570 570 545 Q520 505 540 460 Z" fill="#698e72"/>
+    <rect x="580" y="415" width="10" height="40" fill="#52796f"/>
+    <rect x="610" y="405" width="10" height="50" fill="#52796f"/>
+    <rect x="640" y="420" width="10" height="35" fill="#52796f"/>
+    <path d="M575 405 L655 405 L655 412 L575 412 Z" fill="#84a98c"/>
+    <path d="M605 455 L605 530" stroke="#10b981" stroke-width="3" opacity="0.75"/>
+
+    <!-- Far Right Island Pillar -->
+    <path d="M2180 430 Q2220 410 2270 420 Q2300 445 2280 480 Q2230 520 2190 490 Z" fill="#698e72"/>
+    <rect x="2210" y="380" width="12" height="45" fill="#52796f"/>
+    <rect x="2240" y="365" width="12" height="60" fill="#52796f"/>
+    <path d="M2205 365 L2255 365 L2255 372 L2205 372 Z" fill="#84a98c"/>
+  </g>
+
+  <!-- MID-GROUND ATMOSPHERIC CLOUDS -->
+  <path d="M0 640 Q250 540 500 600 Q750 640 1000 560 Q1250 500 1500 580 Q1750 630 2000 550 Q2300 500 2560 600 L2560 1180 L0 1180 Z" fill="url(#cloudBack)"/>
+
+  <!-- ========================================================================= -->
+  <!-- ANCIENT MAYAN RUIN PILLARS & WATERFALLS (FAR LEFT)                        -->
+  <!-- ========================================================================= -->
+  <g id="leftMonoliths" transform="translate(60, 420)">
+    <!-- Totem Pillar 1 -->
+    <path d="M40 80 L90 70 L110 90 L110 220 L30 230 Z" fill="#52796f"/>
+    <path d="M40 80 L90 70 L110 90 L85 100 L35 100 Z" fill="#84a98c"/>
+    <!-- Carved Mayan Face Glyphs -->
+    <rect x="50" y="105" width="45" height="12" rx="3" fill="#354f52" stroke="#10b981" stroke-width="2" filter="url(#glowSoft)"/>
+    <rect x="55" y="125" width="35" height="25" rx="4" fill="#3d5a57" stroke="#34d399" stroke-width="1.5"/>
+    <rect x="62" y="132" width="6" height="6" fill="#10b981" filter="url(#glowCyanHigh)"/>
+    <rect x="76" y="132" width="6" height="6" fill="#10b981" filter="url(#glowCyanHigh)"/>
+    <rect x="52" y="160" width="42" height="10" rx="2" fill="#354f52" stroke="#34d399" stroke-width="1.5"/>
+
+    <!-- Glowing Emerald Hanging Flora & Waterfalls -->
+    <path d="M30 220 L30 380 L45 380 L45 220 Z" fill="url(#cyanWater)" filter="url(#glowSoft)"/>
+    <path d="M90 210 L90 350 L102 350 L102 210 Z" fill="url(#cyanWater)" opacity="0.85"/>
+    <!-- Glowing green flowers -->
+    <circle cx="115" cy="180" r="5" fill="#10b981" filter="url(#glowCyanHigh)"/>
+    <circle cx="122" cy="195" r="4" fill="#34d399" filter="url(#glowCyanHigh)"/>
+    <circle cx="108" cy="210" r="6" fill="#059669" filter="url(#glowCyanHigh)"/>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- GRAND SKY TEMPLE ZIGGURAT & DRAGON SHRINE (RIGHT)                         -->
+  <!-- ========================================================================= -->
+  <g id="skyTemplePyramid" transform="translate(1500, 180)">
+    <!-- Base Mountain & Cliff Foundation -->
+    <path d="M0 640 L120 480 L350 360 L680 340 L880 480 L1040 680 L1040 1000 L0 1000 Z" fill="#3d5a57"/>
+    
+    <!-- Ziggurat Step 1 (Bottom Tier) -->
+    <polygon points="120,540 180,440 680,440 740,540" fill="url(#templeStone)"/>
+    <path d="M120 540 L180 440 L680 440 L740 540" stroke="#84a98c" stroke-width="4" fill="none"/>
+    <rect x="190" y="450" width="480" height="15" fill="#52796f"/>
+
+    <!-- Ziggurat Step 2 (Middle Tier) -->
+    <polygon points="210,440 260,340 600,340 650,440" fill="url(#templeStone)"/>
+    <path d="M210 440 L260 340 L600 340 L650 440" stroke="#a3c4ab" stroke-width="4" fill="none"/>
+    <rect x="270" y="350" width="320" height="14" fill="#5d8376"/>
+
+    <!-- Ziggurat Step 3 (Upper Tier Sanctuary) -->
+    <polygon points="300,340 340,240 520,240 560,340" fill="url(#templeHighlight)"/>
+    <rect x="345" y="245" width="170" height="12" fill="#6e9477"/>
+
+    <!-- Top Altar & Glowing Dragon Totem -->
+    <rect x="380" y="190" width="100" height="50" rx="6" fill="#3d5a57" stroke="#10b981" stroke-width="3"/>
+    <!-- Glowing Emerald Crystals on Peak -->
+    <polygon points="430,130 415,190 445,190" fill="#34d399" filter="url(#glowCyanHigh)"/>
+    <polygon points="405,150 395,190 420,190" fill="#10b981" filter="url(#glowCyanHigh)"/>
+    <polygon points="455,145 440,190 465,190" fill="#059669" filter="url(#glowCyanHigh)"/>
+
+    <!-- Giant Carved Dragon / Feathered Serpent Head (Right Terrace) -->
+    <g transform="translate(620, 260)">
+      <path d="M20 50 Q60 10 110 30 Q140 70 120 120 Q80 150 20 120 Z" fill="#52796f" stroke="#84a98c" stroke-width="4"/>
+      <!-- Glowing Jade Dragon Eye -->
+      <circle cx="95" cy="65" r="10" fill="#10b981"/>
+      <circle cx="95" cy="65" r="5" fill="#ffffff" filter="url(#glowCyanHigh)"/>
+      <!-- Snout & Horns -->
+      <path d="M110 30 L140 10 L130 40 Z" fill="#34d399" filter="url(#glowSoft)"/>
+      <path d="M90 20 L115 -10 L110 25 Z" fill="#6ee7b7" filter="url(#glowSoft)"/>
+      <rect x="80" y="90" width="35" height="8" rx="2" fill="#283d3b"/>
+    </g>
+
+    <!-- Glowing Waterfall Cascades (Falling into the Clouds) -->
+    <path d="M240 440 L240 750 L275 750 L275 440 Z" fill="url(#cyanWater)" filter="url(#glowSoft)"/>
+    <path d="M600 440 L600 780 L645 780 L645 440 Z" fill="url(#cyanWater)" filter="url(#glowCyanHigh)"/>
+    <path d="M680 540 L680 820 L720 820 L720 540 Z" fill="url(#cyanWater)" opacity="0.85"/>
+
+    <!-- Emerald Glowing Glyphs along the Pyramid Steps -->
+    <path d="M290 355 L320 355 L320 375 L290 375 Z" stroke="#10b981" stroke-width="2" fill="none" filter="url(#glowSoft)"/>
+    <path d="M490 355 L520 355 L520 375 L490 375 Z" stroke="#10b981" stroke-width="2" fill="none" filter="url(#glowSoft)"/>
+    <circle cx="650" cy="480" r="12" fill="#2d6a4f"/>
+    <circle cx="650" cy="480" r="6" fill="#34d399" filter="url(#glowCyanHigh)"/>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- THE STONE CAUSEWAY BRIDGE & CIRCULAR ALTAR DAIS                           -->
+  <!-- ========================================================================= -->
+  <g id="sacredBridge">
+    <!-- Massive Stone Bridge Arches -->
+    <path d="M280 820 L280 1180 L380 1180 L380 780 Q330 760 280 820 Z" fill="#283d3b"/>
+    <path d="M720 680 L720 1180 L840 1180 L840 640 Q780 620 720 680 Z" fill="#283d3b"/>
+    <path d="M1200 620 L1200 1180 L1340 1180 L1340 590 Q1270 560 1200 620 Z" fill="#283d3b"/>
+
+    <!-- Bridge Body with Moss & Carvings -->
+    <path d="M200 820 Q650 710 1100 620 Q1450 560 1720 590 L1700 700 Q1420 660 1080 720 Q620 820 200 960 Z" fill="url(#templeStone)"/>
+
+    <!-- Bridge Walking Surface -->
+    <path d="M200 820 L1720 590 L1735 625 L210 880 Z" fill="url(#templeHighlight)"/>
+
+    <!-- Square Mayan Carved Glyphs on Bridge (Left Section) -->
+    <g transform="translate(420, 710) rotate(-11)">
+      <rect x="0" y="0" width="180" height="90" rx="6" fill="#52796f" stroke="#84a98c" stroke-width="4"/>
+      <rect x="15" y="10" width="150" height="70" rx="4" fill="#3d5a57" stroke="#10b981" stroke-width="2.5" filter="url(#glowSoft)"/>
+      <rect x="40" y="25" width="100" height="40" fill="#283d3b"/>
+      <circle cx="90" cy="45" r="14" fill="#1b3324" stroke="#34d399" stroke-width="2" filter="url(#glowCyanHigh)"/>
+    </g>
+
+    <!-- Hanging Ethereal Roots & Glowing Spores under Bridge -->
+    <g stroke="#10b981" stroke-width="3" opacity="0.8" filter="url(#glowSoft)">
+      <path d="M360 840 Q380 920 370 980"/>
+      <path d="M600 770 Q620 860 610 930"/>
+      <path d="M850 710 Q880 820 870 900"/>
+      <path d="M1150 660 Q1180 760 1170 840"/>
+    </g>
+
+    <!-- CIRCULAR RITUAL ALTAR PLATFORM (CENTER) -->
+    <g transform="translate(1320, 545)">
+      <!-- Tiered Round Stone Dais -->
+      <ellipse cx="60" cy="50" rx="190" ry="60" fill="#354f52" stroke="#52796f" stroke-width="6"/>
+      <ellipse cx="60" cy="40" rx="180" ry="54" fill="#45685d" stroke="#698e72" stroke-width="4"/>
+      <ellipse cx="60" cy="30" rx="170" ry="48" fill="#567e6c" stroke="#84a98c" stroke-width="3"/>
+      <!-- Glowing Mayan Circular Glyphs -->
+      <ellipse cx="60" cy="28" rx="130" ry="34" fill="none" stroke="#10b981" stroke-width="3" filter="url(#glowCyanHigh)"/>
+      
+      <!-- Central Sacred Altar Stone Base -->
+      <ellipse cx="60" cy="22" rx="36" ry="16" fill="#3d5a57" stroke="#34d399" stroke-width="3"/>
+
+      <!-- ===================================================================== -->
+      <!-- SACRED GLOWING EMERALD CRYSTAL / RELIC                                -->
+      <!-- ===================================================================== -->
+      <!-- Ethereal Glow Beam Aura -->
+      <ellipse cx="60" cy="0" rx="45" ry="45" fill="#34d399" opacity="0.35" filter="url(#glowCyanHigh)"/>
+      <!-- The Sacred Crystal -->
+      <polygon points="60,-35 44,5 60,18 76,5" fill="#d1fae5" filter="url(#glowCyanHigh)"/>
+      <polygon points="60,-35 44,5 60,8" fill="#6ee7b7"/>
+      <polygon points="60,-35 76,5 60,8" fill="#a7f3d0"/>
+      <polygon points="44,5 60,18 60,8" fill="#059669"/>
+      <polygon points="76,5 60,18 60,8" fill="#10b981"/>
+
+      <!-- ===================================================================== -->
+      <!-- SWARM OF GLOWING BIOLUMINESCENT BUTTERFLIES / SPIRITS                 -->
+      <!-- ===================================================================== -->
+      <g fill="#10b981" filter="url(#glowCyanHigh)">
+        <!-- Butterfly Cluster ascending into the sky -->
+        <!-- Center high -->
+        <polygon points="60,-120 54,-130 60,-126 66,-130" />
+        <polygon points="45,-95 38,-105 45,-101 52,-105" />
+        <polygon points="78,-105 70,-115 78,-111 86,-115" />
+        <polygon points="30,-140 22,-150 30,-146 38,-150" />
+        <polygon points="90,-135 82,-145 90,-141 98,-145" />
+        <polygon points="55,-160 48,-172 55,-168 62,-172" />
+        <polygon points="75,-175 67,-188 75,-184 83,-188" />
+        <!-- Left fan -->
+        <polygon points="-10,-80 -18,-90 -10,-86 -2,-90" />
+        <polygon points="-40,-110 -50,-120 -40,-116 -30,-120" />
+        <polygon points="-25,-145 -34,-156 -25,-152 -16,-156" />
+        <polygon points="0,-170 -10,-182 0,-178 10,-182" />
+        <!-- Right fan -->
+        <polygon points="120,-85 110,-95 120,-91 130,-95" />
+        <polygon points="150,-115 140,-126 150,-122 160,-126" />
+        <polygon points="135,-155 124,-168 135,-164 146,-168" />
+        <polygon points="110,-190 100,-202 110,-198 120,-202" />
+        <!-- Micro spirit motes -->
+        <circle cx="15" cy="-60" r="2.5" fill="#34d399"/>
+        <circle cx="105" cy="-70" r="2.5" fill="#34d399"/>
+        <circle cx="-15" cy="-120" r="2" fill="#34d399"/>
+        <circle cx="135" cy="-135" r="2.5" fill="#34d399"/>
+        <circle cx="60" cy="-210" r="3" fill="#34d399"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 7 ARCPIXLS CHARACTERS GATHERED AROUND THE SACRED ALTAR                    -->
+  <!-- ========================================================================= -->
+  <g id="altarLineup" transform="translate(1220, 480)">
+    <!-- 1. Black Hat Pixl (Far Left of Dais) -->
+    <g transform="translate(0, 0)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#15803d" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="2" y="4" width="20" height="5" fill="#000000"/>
+      <rect x="5" y="-2" width="14" height="7" fill="#111111"/>
+      <rect x="5" y="9" width="14" height="11" fill="#f59e0b"/>
+      <rect x="8" y="12" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="12" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="20" width="18" height="16" fill="#18181b"/>
+      <rect x="5" y="36" width="5" height="10" fill="#000000"/>
+      <rect x="14" y="36" width="5" height="10" fill="#000000"/>
+    </g>
+
+    <!-- 2. Orange Cap Pixl -->
+    <g transform="translate(45, -15)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="2" y="2" width="20" height="6" fill="#ea580c"/>
+      <rect x="5" y="8" width="14" height="11" fill="#fbbf24"/>
+      <rect x="8" y="11" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="11" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="19" width="18" height="16" fill="#0284c7"/>
+      <rect x="5" y="35" width="5" height="10" fill="#0369a1"/>
+      <rect x="14" y="35" width="5" height="10" fill="#0369a1"/>
+    </g>
+
+    <!-- 3. Afro Emerald Pixl -->
+    <g transform="translate(90, -28)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="1" y="-5" width="22" height="12" fill="#171717"/>
+      <rect x="5" y="7" width="14" height="11" fill="#b45309"/>
+      <rect x="8" y="10" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="10" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="18" width="18" height="16" fill="#059669"/>
+      <rect x="5" y="34" width="5" height="10" fill="#047857"/>
+      <rect x="14" y="34" width="5" height="10" fill="#047857"/>
+    </g>
+
+    <!-- 4. Blue Crown Pixl (Behind Altar Crystal) -->
+    <g transform="translate(150, -32)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#10b981" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="3" y="-5" width="18" height="11" fill="#2563eb"/>
+      <rect x="5" y="6" width="14" height="11" fill="#f59e0b"/>
+      <rect x="8" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="17" width="18" height="16" fill="#1e3a8a"/>
+      <rect x="5" y="33" width="5" height="10" fill="#172554"/>
+      <rect x="14" y="33" width="5" height="10" fill="#172554"/>
+    </g>
+
+    <!-- 5. Green Spikes Pixl -->
+    <g transform="translate(205, -28)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="3" y="-4" width="18" height="10" fill="#16a34a"/>
+      <rect x="5" y="6" width="14" height="11" fill="#fbbf24"/>
+      <rect x="8" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="17" width="18" height="16" fill="#15803d"/>
+      <rect x="5" y="33" width="5" height="10" fill="#14532d"/>
+      <rect x="14" y="33" width="5" height="10" fill="#14532d"/>
+    </g>
+
+    <!-- 6. White Ribbon Pixl -->
+    <g transform="translate(250, -15)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#10b981" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="3" y="-2" width="18" height="8" fill="#e2e8f0"/>
+      <rect x="5" y="6" width="14" height="11" fill="#d97706"/>
+      <rect x="8" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="9" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="17" width="18" height="16" fill="#059669"/>
+      <rect x="5" y="33" width="5" height="10" fill="#ffffff"/>
+      <rect x="14" y="33" width="5" height="10" fill="#ffffff"/>
+    </g>
+
+    <!-- 7. Purple Robe Pixl (Right of Dais) -->
+    <g transform="translate(295, 0)">
+      <rect x="-6" y="-8" width="34" height="60" rx="6" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.9" filter="url(#glowCyanHigh)"/>
+      <rect x="2" y="2" width="20" height="6" fill="#6d28d9"/>
+      <rect x="5" y="8" width="14" height="11" fill="#f59e0b"/>
+      <rect x="8" y="11" width="2" height="2" fill="#000000"/>
+      <rect x="14" y="11" width="2" height="2" fill="#000000"/>
+      <rect x="3" y="19" width="18" height="16" fill="#581c87"/>
+      <rect x="5" y="35" width="5" height="10" fill="#3b0764"/>
+      <rect x="14" y="35" width="5" height="10" fill="#3b0764"/>
+    </g>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- FOREGROUND VOLUMETRIC ROLLING CLOUDS (WRAPPER)                            -->
+  <!-- ========================================================================= -->
+  <g id="foregroundClouds">
+    <path d="M-100 1180 L-100 820 Q120 720 320 800 Q520 680 780 800 Q1050 660 1350 800 Q1650 680 1980 820 Q2280 700 2660 840 L2660 1180 Z" fill="url(#cloudFront)" opacity="0.92"/>
+    
+    <path d="M-50 1180 L-50 900 Q180 820 440 900 Q700 780 1000 920 Q1300 800 1650 930 Q2000 820 2350 940 Q2520 880 2680 920 L2680 1180 Z" fill="url(#cloudFront)" opacity="0.98"/>
+
+    <!-- Soft ethereal cloud puffs -->
+    <circle cx="160" cy="940" r="180" fill="#f2f7f4" opacity="0.8" filter="url(#mistBlur)"/>
+    <circle cx="580" cy="1000" r="220" fill="#f8faf9" opacity="0.9" filter="url(#mistBlur)"/>
+    <circle cx="1180" cy="980" r="250" fill="#f0f6f2" opacity="0.8" filter="url(#mistBlur)"/>
+    <circle cx="1880" cy="960" r="260" fill="#f5f9f6" opacity="0.85" filter="url(#mistBlur)"/>
+    <circle cx="2420" cy="980" r="260" fill="#ffffff" opacity="0.95" filter="url(#mistBlur)"/>
+  </g>
+</svg>

@@ -1,0 +1,417 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#08111a"/>
+      <stop offset="35%" stop-color="#142332"/>
+      <stop offset="65%" stop-color="#233a4c"/>
+      <stop offset="85%" stop-color="#3c576b"/>
+      <stop offset="100%" stop-color="#55758a"/>
+    </linearGradient>
+
+    <!-- Castle Gradients -->
+    <linearGradient id="castleGrad" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#283e4d"/>
+      <stop offset="50%" stop-color="#1c2d38"/>
+      <stop offset="100%" stop-color="#121e26"/>
+    </linearGradient>
+
+    <linearGradient id="castleLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#466479"/>
+      <stop offset="100%" stop-color="#1e303d"/>
+    </linearGradient>
+
+    <!-- Cloud Gradients -->
+    <linearGradient id="cloudGradBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4f6e82" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#7393a7" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#9cb8c9" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <linearGradient id="cloudGradFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b0cddb" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#d6e8f2" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#eaf3f8" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <linearGradient id="mistSoft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cbe0ec" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#cbe0ec" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#e2eff6" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- Bridge Gradient -->
+    <linearGradient id="bridgeStone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d5746"/>
+      <stop offset="40%" stop-color="#2b3e34"/>
+      <stop offset="80%" stop-color="#1d2c25"/>
+      <stop offset="100%" stop-color="#101915"/>
+    </linearGradient>
+
+    <linearGradient id="bridgeTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#557762"/>
+      <stop offset="50%" stop-color="#435f4e"/>
+      <stop offset="100%" stop-color="#2d4034"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15"/>
+    </filter>
+  </defs>
+
+  <!-- SKY BACKGROUND -->
+  <rect width="2560" height="1080" fill="url(#skyGrad)"/>
+
+  <!-- DISTANT STARS / SPARKLES -->
+  <g fill="#ffffff" opacity="0.6">
+    <circle cx="240" cy="120" r="1.5"/>
+    <circle cx="480" cy="90" r="1"/>
+    <circle cx="780" cy="160" r="1.8"/>
+    <circle cx="1120" cy="80" r="1.2"/>
+    <circle cx="1450" cy="110" r="1.5"/>
+    <circle cx="1980" cy="70" r="1.2"/>
+    <circle cx="2300" cy="140" r="2"/>
+    <polygon points="2480,880 2484,888 2492,892 2484,896 2480,904 2476,896 2468,892 2476,888" fill="#e2f1f8" opacity="0.75"/>
+  </g>
+
+  <!-- DISTANT MOUNTAINS & MIST BEHIND CASTLE -->
+  <path d="M1400 680 L1680 280 L1880 180 L2040 290 L2300 520 L2560 620 L2560 1080 L1400 1080 Z" fill="#152430" opacity="0.65"/>
+  <path d="M1520 700 L1760 380 L1920 280 L2100 420 L2420 660 L2420 1080 L1520 1080 Z" fill="#1b2e3d" opacity="0.75"/>
+
+  <!-- FLOATING ANCIENT RUINS & ARCHES (FAR LEFT) -->
+  <g opacity="0.55">
+    <!-- Island 1 Left -->
+    <path d="M420 420 Q480 400 560 410 Q610 440 580 480 Q520 540 450 510 Q400 470 420 420 Z" fill="#182935"/>
+    <!-- Pillars on Island 1 -->
+    <rect x="450" y="360" width="8" height="55" fill="#223746"/>
+    <rect x="475" y="350" width="8" height="65" fill="#223746"/>
+    <rect x="500" y="365" width="8" height="50" fill="#223746"/>
+    <rect x="525" y="375" width="8" height="40" fill="#223746"/>
+    <path d="M445 350 L535 350 L535 358 L445 358 Z" fill="#2c4557"/>
+
+    <!-- Island 2 Deep Left -->
+    <path d="M680 440 Q750 420 840 435 Q880 460 850 495 Q790 530 720 510 Q660 480 680 440 Z" fill="#152430"/>
+    <rect x="710" y="390" width="10" height="50" fill="#1d303f"/>
+    <rect x="740" y="380" width="10" height="60" fill="#1d303f"/>
+    <rect x="770" y="395" width="10" height="45" fill="#1d303f"/>
+    <path d="M705 380 L785 380 L785 388 L705 388 Z" fill="#253c4d"/>
+  </g>
+
+  <!-- MIDGROUND DEEP CLOUDS -->
+  <path d="M0 640 Q250 520 500 580 Q750 630 1000 540 Q1250 480 1500 560 Q1750 610 2000 530 Q2300 480 2560 580 L2560 1080 L0 1080 Z" fill="url(#cloudGradBack)"/>
+
+  <!-- ========================================================================= -->
+  <!-- GRAND GOTHIC CELESTIAL CASTLE (RIGHT)                                    -->
+  <!-- ========================================================================= -->
+  <g id="celestialCastle" transform="translate(1450, 0)">
+    <!-- Mountain Rock Foundation -->
+    <path d="M120 720 L260 540 L450 420 L750 400 L950 580 L1110 760 L1110 1080 L120 1080 Z" fill="#172733"/>
+    <path d="M180 680 L320 510 L520 420 L720 410 L900 560 L1050 780 Z" fill="#1f3444" opacity="0.6"/>
+
+    <!-- Left Wing Spire -->
+    <path d="M220 520 L220 300 L250 180 L280 300 L280 520 Z" fill="url(#castleGrad)"/>
+    <polygon points="250,150 240,200 260,200" fill="#4d6f85"/>
+    <rect x="235" y="320" width="8" height="24" rx="4" fill="#0c151c"/>
+    <rect x="257" y="320" width="8" height="24" rx="4" fill="#0c151c"/>
+
+    <!-- Right Wing Spire -->
+    <path d="M760 520 L760 280 L790 160 L820 280 L820 520 Z" fill="url(#castleGrad)"/>
+    <polygon points="790,130 780,180 800,180" fill="#4d6f85"/>
+    <rect x="775" y="300" width="8" height="24" rx="4" fill="#0c151c"/>
+    <rect x="797" y="300" width="8" height="24" rx="4" fill="#0c151c"/>
+
+    <!-- Central Grand Cathedral Spire -->
+    <path d="M380 580 L380 260 L440 160 L500 60 L560 160 L620 260 L620 580 Z" fill="url(#castleGrad)"/>
+    <polygon points="500,20 490,90 510,90" fill="#6087a0"/>
+
+    <!-- Secondary Towers & Buttresses -->
+    <path d="M300 480 L300 240 L340 150 L380 240 L380 480 Z" fill="url(#castleLight)"/>
+    <path d="M620 480 L620 240 L660 150 L700 240 L700 480 Z" fill="url(#castleGrad)"/>
+
+    <!-- Ornate Windows & Gothic Rose Window -->
+    <circle cx="500" cy="220" r="32" fill="#0d1820" stroke="#3d5a6d" stroke-width="4"/>
+    <circle cx="500" cy="220" r="24" fill="#122530"/>
+    <circle cx="500" cy="220" r="10" fill="#2dd4bf" opacity="0.4" filter="url(#glowCyan)"/>
+
+    <!-- Center Grand Arch Portal -->
+    <path d="M440 560 C440 450 560 450 560 560 Z" fill="#070d12"/>
+    <path d="M455 560 C455 475 545 475 545 560 Z" fill="#04070a"/>
+    <path d="M435 560 C435 440 565 440 565 560" fill="none" stroke="#466479" stroke-width="6"/>
+
+    <!-- Side Arches & Balconies -->
+    <path d="M340 460 C340 380 400 380 400 460" fill="none" stroke="#364e5e" stroke-width="4"/>
+    <path d="M600 460 C600 380 660 380 660 460" fill="none" stroke="#364e5e" stroke-width="4"/>
+    <rect x="290" y="380" width="420" height="12" fill="#3a5364"/>
+    <rect x="330" y="460" width="340" height="14" fill="#2d4250"/>
+
+    <!-- Windows Glow -->
+    <rect x="470" y="320" width="16" height="40" rx="8" fill="#1a3240" stroke="#3c576b" stroke-width="2"/>
+    <rect x="514" y="320" width="16" height="40" rx="8" fill="#1a3240" stroke="#3c576b" stroke-width="2"/>
+    <rect x="474" y="324" width="8" height="30" rx="4" fill="#38bdf8" opacity="0.25"/>
+    <rect x="518" y="324" width="8" height="30" rx="4" fill="#38bdf8" opacity="0.25"/>
+
+    <!-- Castle Portal Path Bridge Extension -->
+    <path d="M380 560 L140 650 L200 680 L440 590 Z" fill="#2a3f33"/>
+    <path d="M140 650 Q240 610 380 560" stroke="#476b54" stroke-width="8" fill="none"/>
+  </g>
+
+  <!-- MID-FOREGROUND VOLUMETRIC MIST WRAPPING CASTLE -->
+  <path d="M1200 600 Q1500 480 1850 560 Q2200 500 2560 580 L2560 760 Q2100 660 1700 720 Q1400 700 1200 600 Z" fill="url(#mistSoft)" opacity="0.8"/>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING STEPPING STONES (GAP NEAR CASTLE)                                -->
+  <!-- ========================================================================= -->
+  <!-- Floating Stone 1 -->
+  <g transform="translate(1380, 720)">
+    <path d="M10 20 L70 0 L120 15 L105 55 L35 75 L0 45 Z" fill="#1b2a22"/>
+    <path d="M10 20 L70 0 L120 15 L100 25 L45 28 L0 25 Z" fill="#4d6f58"/>
+    <!-- Moss highlights -->
+    <path d="M20 18 Q45 12 70 5 Q95 12 110 15" stroke="#74a883" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- Floating Island (Right Ruins) -->
+  <g transform="translate(2100, 780)" opacity="0.7">
+    <path d="M0 30 L80 0 L180 10 L220 50 L140 120 L40 100 Z" fill="#16252d"/>
+    <path d="M0 30 L80 0 L180 10 L160 30 L60 35 Z" fill="#324956"/>
+    <!-- Ruin Pillars -->
+    <rect x="40" y="-40" width="12" height="50" fill="#233844"/>
+    <rect x="70" y="-55" width="12" height="65" fill="#233844"/>
+    <rect x="100" y="-35" width="12" height="45" fill="#233844"/>
+    <path d="M35 -55 L115 -55 L115 -45 L35 -45 Z" fill="#304c5c"/>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- ANCIENT STONE BRIDGE (FROM BOTTOM-LEFT TOWARDS CASTLE)                    -->
+  <!-- ========================================================================= -->
+  <g id="stoneBridge">
+    <!-- Bridge Under-Arches and Foundation -->
+    <path d="M420 860 L420 1080 L520 1080 L520 840 Q470 820 420 860 Z" fill="#111c16"/>
+    <path d="M880 720 L880 1080 L1020 1080 L1020 680 Q950 660 880 720 Z" fill="#111c16"/>
+
+    <!-- Bridge Main Body -->
+    <path d="M420 860 Q700 760 1000 680 Q1200 620 1380 640 L1360 740 Q1180 720 980 780 Q680 880 420 1020 Z" fill="url(#bridgeStone)"/>
+
+    <!-- Bridge Walking Surface (Perspective Top Slab) -->
+    <path d="M420 860 L1380 640 L1390 665 L430 920 Z" fill="url(#bridgeTop)"/>
+
+    <!-- Moss & Ancient Stone Tiles Pattern on Bridge -->
+    <g stroke="#23372c" stroke-width="2" opacity="0.75">
+      <!-- Cross Stone lines -->
+      <line x1="480" y1="895" x2="520" y2="840"/>
+      <line x1="560" y1="870" x2="600" y2="815"/>
+      <line x1="650" y1="840" x2="690" y2="785"/>
+      <line x1="740" y1="810" x2="780" y2="755"/>
+      <line x1="840" y1="775" x2="880" y2="725"/>
+      <line x1="940" y1="745" x2="980" y2="695"/>
+      <line x1="1050" y1="710" x2="1090" y2="665"/>
+      <line x1="1170" y1="675" x2="1205" y2="640"/>
+      <line x1="1280" y1="650" x2="1310" y2="625"/>
+    </g>
+
+    <!-- Moss green top edge -->
+    <path d="M420 860 Q700 760 1000 680 Q1200 620 1380 640" stroke="#7eb88d" stroke-width="6" fill="none"/>
+    <path d="M430 920 Q710 820 1010 740 Q1210 680 1390 665" stroke="#3b5645" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 8 GLOWING PIXEL CHARACTERS ON THE BRIDGE (THE ARCPIXLS LINEUP)            -->
+  <!-- ========================================================================= -->
+  <g id="pixelLineup" transform="translate(0, 0)">
+    <!-- 1. BLACK HAT PIXL (Leader / Leftmost) -->
+    <g transform="translate(780, 580)">
+      <!-- Holographic Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <circle cx="-10" cy="-12" r="2.5" fill="#ffffff"/>
+      <circle cx="36" cy="-12" r="2.5" fill="#ffffff"/>
+      <circle cx="-10" cy="62" r="2.5" fill="#ffffff"/>
+      <circle cx="36" cy="62" r="2.5" fill="#ffffff"/>
+      <!-- Pixel Character Body -->
+      <!-- Black Fedora -->
+      <rect x="0" y="4" width="26" height="6" fill="#000000"/>
+      <rect x="4" y="-4" width="18" height="8" fill="#111111"/>
+      <rect x="4" y="2" width="18" height="2" fill="#ffffff"/>
+      <!-- Head / Face -->
+      <rect x="4" y="10" width="18" height="14" fill="#f59e0b"/>
+      <rect x="8" y="14" width="3" height="3" fill="#000000"/>
+      <rect x="16" y="14" width="3" height="3" fill="#000000"/>
+      <!-- Black Coat Body -->
+      <rect x="2" y="24" width="22" height="20" fill="#111827"/>
+      <rect x="11" y="24" width="4" height="20" fill="#ffffff"/>
+      <!-- Legs Walking -->
+      <rect x="4" y="44" width="6" height="12" fill="#000000"/>
+      <rect x="16" y="44" width="6" height="12" fill="#000000"/>
+    </g>
+
+    <!-- 2. GREEN SPIKES PIXL -->
+    <g transform="translate(870, 555)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#4ade80" stroke-width="2.5" opacity="0.85" filter="url(#glowGreen)"/>
+      <circle cx="-10" cy="-12" r="2.5" fill="#4ade80"/>
+      <circle cx="36" cy="-12" r="2.5" fill="#4ade80"/>
+      <circle cx="-10" cy="62" r="2.5" fill="#4ade80"/>
+      <circle cx="36" cy="62" r="2.5" fill="#4ade80"/>
+      <!-- Green Spikes Hair -->
+      <rect x="2" y="-6" width="6" height="10" fill="#22c55e"/>
+      <rect x="10" y="-8" width="6" height="12" fill="#16a34a"/>
+      <rect x="18" y="-6" width="6" height="10" fill="#22c55e"/>
+      <!-- Head -->
+      <rect x="4" y="4" width="18" height="14" fill="#fbbf24"/>
+      <rect x="8" y="8" width="3" height="3" fill="#000000"/>
+      <rect x="16" y="8" width="3" height="3" fill="#000000"/>
+      <rect x="11" y="14" width="5" height="2" fill="#b45309"/>
+      <!-- Green Robe Body -->
+      <rect x="2" y="18" width="22" height="24" fill="#15803d"/>
+      <rect x="10" y="18" width="6" height="24" fill="#166534"/>
+      <!-- Legs -->
+      <rect x="4" y="42" width="6" height="12" fill="#14532d"/>
+      <rect x="16" y="42" width="6" height="12" fill="#14532d"/>
+    </g>
+
+    <!-- 3. WHITE HAT / PURPLE ROBE PIXL -->
+    <g transform="translate(960, 530)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#e0e7ff" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <circle cx="-10" cy="-12" r="2.5" fill="#ffffff"/>
+      <circle cx="36" cy="-12" r="2.5" fill="#ffffff"/>
+      <circle cx="-10" cy="62" r="2.5" fill="#ffffff"/>
+      <circle cx="36" cy="62" r="2.5" fill="#ffffff"/>
+      <!-- White Feather Hat -->
+      <rect x="0" y="0" width="26" height="6" fill="#f8fafc"/>
+      <rect x="4" y="-8" width="18" height="8" fill="#e2e8f0"/>
+      <rect x="20" y="-14" width="4" height="8" fill="#38bdf8"/>
+      <!-- Head -->
+      <rect x="4" y="6" width="18" height="14" fill="#d97706"/>
+      <rect x="8" y="10" width="3" height="3" fill="#000000"/>
+      <rect x="16" y="10" width="3" height="3" fill="#000000"/>
+      <!-- Purple Suit -->
+      <rect x="2" y="20" width="22" height="22" fill="#6d28d9"/>
+      <rect x="10" y="20" width="6" height="22" fill="#f8fafc"/>
+      <!-- White Pants/Shoes -->
+      <rect x="4" y="42" width="6" height="12" fill="#ffffff"/>
+      <rect x="16" y="42" width="6" height="12" fill="#ffffff"/>
+    </g>
+
+    <!-- 4. VIOLET CYBER VISOR PIXL -->
+    <g transform="translate(1050, 508)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#c084fc" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <!-- Cyber Head & Visor -->
+      <rect x="4" y="-2" width="18" height="18" fill="#3b0764"/>
+      <rect x="2" y="4" width="22" height="6" fill="#ec4899"/>
+      <rect x="4" y="5" width="18" height="4" fill="#f472b6"/>
+      <!-- Dark Violet Robe -->
+      <rect x="2" y="16" width="22" height="24" fill="#581c87"/>
+      <rect x="10" y="16" width="6" height="24" fill="#9333ea"/>
+      <!-- Legs -->
+      <rect x="4" y="40" width="6" height="12" fill="#3b0764"/>
+      <rect x="16" y="40" width="6" height="12" fill="#3b0764"/>
+    </g>
+
+    <!-- 5. CRIMSON CYBER HOOD PIXL -->
+    <g transform="translate(1130, 488)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#f87171" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <!-- Red Hood -->
+      <rect x="2" y="-4" width="22" height="22" fill="#dc2626"/>
+      <rect x="6" y="2" width="14" height="12" fill="#18181b"/>
+      <!-- White Glowing Eye slit -->
+      <rect x="8" y="6" width="10" height="4" fill="#ffffff"/>
+      <!-- Red Coat -->
+      <rect x="2" y="18" width="22" height="24" fill="#b91c1c"/>
+      <rect x="10" y="18" width="6" height="24" fill="#7f1d1d"/>
+      <!-- Legs -->
+      <rect x="4" y="42" width="6" height="12" fill="#991b1b"/>
+      <rect x="16" y="42" width="6" height="12" fill="#991b1b"/>
+    </g>
+
+    <!-- 6. BLUE CROWN / CYBER HEADPHONES PIXL -->
+    <g transform="translate(1210, 470)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#60a5fa" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <!-- Blue Crown Hair -->
+      <rect x="2" y="-8" width="6" height="12" fill="#3b82f6"/>
+      <rect x="10" y="-12" width="6" height="16" fill="#2563eb"/>
+      <rect x="18" y="-8" width="6" height="12" fill="#3b82f6"/>
+      <!-- Head -->
+      <rect x="4" y="4" width="18" height="14" fill="#f59e0b"/>
+      <rect x="8" y="8" width="3" height="3" fill="#000000"/>
+      <rect x="16" y="8" width="3" height="3" fill="#000000"/>
+      <!-- Blue Navy Suit -->
+      <rect x="2" y="18" width="22" height="22" fill="#1e3a8a"/>
+      <rect x="10" y="18" width="6" height="22" fill="#fbbf24"/>
+      <!-- Legs -->
+      <rect x="4" y="40" width="6" height="12" fill="#172554"/>
+      <rect x="16" y="40" width="6" height="12" fill="#172554"/>
+    </g>
+
+    <!-- 7. AFRO / EMERALD SUIT PIXL -->
+    <g transform="translate(1280, 455)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#4ade80" stroke-width="2.5" opacity="0.85" filter="url(#glowGreen)"/>
+      <!-- Afro Hair -->
+      <rect x="0" y="-10" width="26" height="16" fill="#171717"/>
+      <rect x="-2" y="-6" width="30" height="10" fill="#262626"/>
+      <!-- Head -->
+      <rect x="4" y="4" width="18" height="14" fill="#b45309"/>
+      <rect x="8" y="8" width="3" height="3" fill="#000000"/>
+      <rect x="16" y="8" width="3" height="3" fill="#000000"/>
+      <!-- Emerald Suit -->
+      <rect x="2" y="18" width="22" height="22" fill="#047857"/>
+      <rect x="10" y="18" width="6" height="22" fill="#065f46"/>
+      <!-- Legs -->
+      <rect x="4" y="40" width="6" height="12" fill="#064e3b"/>
+      <rect x="16" y="40" width="6" height="12" fill="#064e3b"/>
+    </g>
+
+    <!-- 8. VOID SHADOW NINJA PIXL (Rightmost) -->
+    <g transform="translate(1360, 475)">
+      <!-- Glow Box -->
+      <rect x="-10" y="-12" width="46" height="74" rx="8" fill="none" stroke="#22d3ee" stroke-width="2.5" opacity="0.85" filter="url(#glowCyan)"/>
+      <!-- Shadow Mask -->
+      <rect x="2" y="-4" width="22" height="20" fill="#09090b"/>
+      <!-- Glowing Cyan Green Eyes -->
+      <rect x="6" y="4" width="4" height="3" fill="#22c55e"/>
+      <rect x="16" y="4" width="4" height="3" fill="#22c55e"/>
+      <!-- Black Robe -->
+      <rect x="2" y="16" width="22" height="24" fill="#000000"/>
+      <rect x="2" y="24" width="4" height="8" fill="#22c55e"/>
+      <!-- Legs -->
+      <rect x="4" y="40" width="6" height="12" fill="#000000"/>
+      <rect x="16" y="40" width="6" height="12" fill="#000000"/>
+    </g>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- FOREGROUND ROLLING CLOUD LAYERS (BOTTOM OF CANVAS)                        -->
+  <!-- ========================================================================= -->
+  <g id="foregroundClouds">
+    <!-- Big Left Cloud Swirls -->
+    <path d="M-100 1080 L-100 750 Q100 680 280 740 Q460 620 680 720 Q900 600 1150 720 Q1400 620 1700 740 Q2000 640 2300 760 Q2500 700 2660 760 L2660 1080 Z" fill="url(#cloudGradFront)" opacity="0.85"/>
+    
+    <path d="M-50 1080 L-50 820 Q150 760 380 820 Q600 720 850 840 Q1100 740 1400 850 Q1750 760 2100 860 Q2400 780 2620 840 L2620 1080 Z" fill="url(#cloudGradFront)" opacity="0.95"/>
+
+    <!-- Subtle atmospheric cloud puffs -->
+    <circle cx="150" cy="850" r="160" fill="#eaf4fa" opacity="0.7" filter="url(#softBlur)"/>
+    <circle cx="450" cy="920" r="190" fill="#f0f7fb" opacity="0.8" filter="url(#softBlur)"/>
+    <circle cx="950" cy="900" r="220" fill="#e4f1f8" opacity="0.65" filter="url(#softBlur)"/>
+    <circle cx="1650" cy="880" r="240" fill="#e8f3f9" opacity="0.75" filter="url(#softBlur)"/>
+    <circle cx="2350" cy="890" r="250" fill="#eef6fb" opacity="0.85" filter="url(#softBlur)"/>
+  </g>
+</svg>

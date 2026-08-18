@@ -1,7 +1,7 @@
 [
   {
     "id": "0001",
-    "name": "ArcPixl #0001 — Black Cap Hacker",
+    "name": "OnchainApp #0001 — Black Cap Hacker",
     "image": "assets/nfts/1.svg",
     "rarity": "Rare",
     "traits": {
@@ -15,7 +15,7 @@
   },
   {
     "id": "0002",
-    "name": "ArcPixl #0002 — Green Spikes",
+    "name": "OnchainApp #0002 — Green Spikes",
     "image": "assets/nfts/2.svg",
     "rarity": "Common",
     "traits": {
@@ -29,7 +29,7 @@
   },
   {
     "id": "0003",
-    "name": "ArcPixl #0003 — White Bucket Hat",
+    "name": "OnchainApp #0003 — White Bucket Hat",
     "image": "assets/nfts/3.svg",
     "rarity": "Legendary",
     "traits": {
@@ -43,7 +43,7 @@
   },
   {
     "id": "0004",
-    "name": "ArcPixl #0004 — Red Void Mask",
+    "name": "OnchainApp #0004 — Red Void Mask",
     "image": "assets/nfts/4.svg",
     "rarity": "Epic",
     "traits": {
@@ -57,7 +57,7 @@
   },
   {
     "id": "0005",
-    "name": "ArcPixl #0005 — Blue Headphones",
+    "name": "OnchainApp #0005 — Blue Headphones",
     "image": "assets/nfts/5.svg",
     "rarity": "Rare",
     "traits": {
@@ -71,7 +71,7 @@
   },
   {
     "id": "0006",
-    "name": "ArcPixl #0006 — Black Spikes",
+    "name": "OnchainApp #0006 — Black Spikes",
     "image": "assets/nfts/6.svg",
     "rarity": "Common",
     "traits": {
@@ -85,7 +85,7 @@
   },
   {
     "id": "0007",
-    "name": "ArcPixl #0007 — Cyber Horns",
+    "name": "OnchainApp #0007 — Cyber Horns",
     "image": "assets/nfts/7.svg",
     "rarity": "Mythic",
     "traits": {
@@ -99,7 +99,7 @@
   },
   {
     "id": "0008",
-    "name": "ArcPixl #0008 — Stealth Hacker",
+    "name": "OnchainApp #0008 — Stealth Hacker",
     "image": "assets/nfts/1.svg",
     "rarity": "Rare",
     "traits": {
@@ -113,7 +113,7 @@
   },
   {
     "id": "0009",
-    "name": "ArcPixl #0009 — Emerald Spikes",
+    "name": "OnchainApp #0009 — Emerald Spikes",
     "image": "assets/nfts/2.svg",
     "rarity": "Common",
     "traits": {
@@ -127,7 +127,7 @@
   },
   {
     "id": "0010",
-    "name": "ArcPixl #0010 — Purple Bucket Shade",
+    "name": "OnchainApp #0010 — Purple Bucket Shade",
     "image": "assets/nfts/3.svg",
     "rarity": "Legendary",
     "traits": {
@@ -141,7 +141,7 @@
   },
   {
     "id": "0011",
-    "name": "ArcPixl #0011 — Crimson Void",
+    "name": "OnchainApp #0011 — Crimson Void",
     "image": "assets/nfts/4.svg",
     "rarity": "Epic",
     "traits": {
@@ -155,7 +155,7 @@
   },
   {
     "id": "0012",
-    "name": "ArcPixl #0012 — Audio Beats",
+    "name": "OnchainApp #0012 — Audio Beats",
     "image": "assets/nfts/5.svg",
     "rarity": "Rare",
     "traits": {
@@ -169,7 +169,7 @@
   },
   {
     "id": "0013",
-    "name": "ArcPixl #0013 — Dark Spikes",
+    "name": "OnchainApp #0013 — Dark Spikes",
     "image": "assets/nfts/6.svg",
     "rarity": "Common",
     "traits": {
@@ -183,7 +183,7 @@
   },
   {
     "id": "0014",
-    "name": "ArcPixl #0014 — XX Cyber Horns",
+    "name": "OnchainApp #0014 — XX Cyber Horns",
     "image": "assets/nfts/7.svg",
     "rarity": "Mythic",
     "traits": {
