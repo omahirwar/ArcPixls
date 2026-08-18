@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle Whitelist Submission
   if (whitelistForm && walletInput && formMsg) {
-    whitelistForm.addEventListener('submit', (e) => {
+    whitelistForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const rawVal = walletInput.value.trim();
       
@@ -119,20 +119,44 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulated success
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Registered!</span> ✓';
-      formMsg.textContent = `🎉 Success! Wallet ${fullAddress.substring(0, 6)}...${fullAddress.substring(38)} is registered for guaranteed whitelist.`;
-      formMsg.className = 'form-message success';
+      submitBtn.innerHTML = '<span>Registering...</span>';
+      formMsg.textContent = 'Submitting your wallet to whitelist...';
+      formMsg.className = 'form-message';
 
-      // Confetti celebration
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 85,
-          spread: 75,
-          origin: { y: 0.75 },
-          colors: ['#15803d', '#16a34a', '#22c55e', '#4ade80', '#86efac']
+      try {
+        const response = await fetch('/api/whitelist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ wallet: fullAddress })
         });
+        const data = await response.json();
+
+        if (response.ok) {
+          submitBtn.innerHTML = '<span>Registered!</span> ✓';
+          formMsg.textContent = `🎉 Success! Wallet ${fullAddress.substring(0, 6)}...${fullAddress.substring(38)} is registered for guaranteed whitelist.`;
+          formMsg.className = 'form-message success';
+
+          if (typeof confetti === 'function') {
+            confetti({
+              particleCount: 85,
+              spread: 75,
+              origin: { y: 0.75 },
+              colors: ['#15803d', '#16a34a', '#22c55e', '#4ade80', '#86efac']
+            });
+          }
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Join Whitelist</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+          formMsg.textContent = `⚠️ ${data.error || 'Failed to submit wallet. Please try again.'}`;
+          formMsg.className = 'form-message error';
+        }
+      } catch (err) {
+        console.error('Submission fetch error:', err);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Join Whitelist</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        formMsg.textContent = '⚠️ Network error: Could not reach whitelist server. Please try again.';
+        formMsg.className = 'form-message error';
       }
     });
   }

@@ -110,7 +110,7 @@ app.get(['/api/whitelist/download', '/whitelist/download'], async (_req, res) =>
     });
 
     res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', 'attachment; filename="arcpixls_whitelisted_wallets.csv"');
+    res.setHeader('Content-Disposition', 'attachment; filename="onchainapp_whitelisted_wallets.csv"');
     return res.status(200).send(csv);
   } catch (err) {
     console.error('Error generating CSV download:', err);
@@ -136,6 +136,6 @@ export default app;
 
 if (!process.env.VERCEL) {
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`ArcPixls server listening on http://0.0.0.0:${PORT}`);
+    console.log(`OnchainApp server listening on http://0.0.0.0:${PORT}`);
   });
 }

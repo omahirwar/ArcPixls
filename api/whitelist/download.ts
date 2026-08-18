@@ -20,7 +20,7 @@ export default async function handler(req: any, res: any) {
       });
 
       res.setHeader('Content-Type', 'text/csv');
-      res.setHeader('Content-Disposition', 'attachment; filename="arcpixls_whitelisted_wallets.csv"');
+      res.setHeader('Content-Disposition', 'attachment; filename="onchainapp_whitelisted_wallets.csv"');
       return res.status(200).send(csv);
     } catch (err) {
       console.error('CSV Download Error:', err);
