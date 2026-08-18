@@ -1,5 +1,4 @@
-import { put, list, head } from '@vercel/blob';
-import postgres from 'postgres';
+import { put, list } from '@vercel/blob';
 
 /**
  * Interface representing a whitelisted wallet record.
@@ -15,7 +14,7 @@ export interface WalletRecord {
 const memoryStore = new Map<string, { wallet: string; submittedAt: string }>();
 
 // Global Postgres client (optional secondary persistence)
-let sqlClient: ReturnType<typeof postgres> | null = null;
+let sqlClient: any = null;
 let sqlInitPromise: Promise<void> | null = null;
 
 /**
@@ -30,16 +29,20 @@ export const EVM_REGEX = /^0x[a-fA-F0-9]{40}$/;
  */
 function getBlobToken(): string | undefined {
   // 1. Direct standard names
-  if (process.env.BLOB_READ_WRITE_TOKEN) return process.env.BLOB_READ_WRITE_TOKEN;
-  if (process.env.VERCEL_BLOB_READ_WRITE_TOKEN) return process.env.VERCEL_BLOB_READ_WRITE_TOKEN;
+  if (process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN.trim() !== '') {
+    return process.env.BLOB_READ_WRITE_TOKEN.trim();
+  }
+  if (process.env.VERCEL_BLOB_READ_WRITE_TOKEN && process.env.VERCEL_BLOB_READ_WRITE_TOKEN.trim() !== '') {
+    return process.env.VERCEL_BLOB_READ_WRITE_TOKEN.trim();
+  }
 
   // 2. Search for any store-specific token created by Vercel
   for (const [key, value] of Object.entries(process.env)) {
     if (typeof value === 'string' && value.startsWith('vercel_blob_rw_')) {
-      return value;
+      return value.trim();
     }
     if (key.endsWith('_READ_WRITE_TOKEN') && typeof value === 'string' && value.length > 10) {
-      return value;
+      return value.trim();
     }
   }
   return undefined;
@@ -48,23 +51,29 @@ function getBlobToken(): string | undefined {
 /**
  * Helper to get optional PostgreSQL client if DATABASE_URL is configured
  */
-function getPostgresClient() {
+async function getPostgresClient() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) return null;
 
   if (!sqlClient) {
-    sqlClient = postgres(connectionString, {
-      ssl: connectionString.includes('localhost') ? false : 'require',
-      max: 10,
-      idle_timeout: 20,
-      connect_timeout: 10,
-    });
+    try {
+      const { default: postgres } = await import('postgres');
+      sqlClient = postgres(connectionString, {
+        ssl: connectionString.includes('localhost') ? false : 'require',
+        max: 10,
+        idle_timeout: 20,
+        connect_timeout: 10,
+      });
+    } catch (e) {
+      console.warn('PostgreSQL client load failed:', e);
+      return null;
+    }
   }
   return sqlClient;
 }
 
 async function initPostgres() {
-  const sql = getPostgresClient();
+  const sql = await getPostgresClient();
   if (!sql) return;
   if (sqlInitPromise) return sqlInitPromise;
 
@@ -104,22 +113,23 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
   const blobPath = `whitelist/${normalizedWallet}.json`;
   const blobToken = getBlobToken();
 
-  let savedToBlob = false;
-
   // 1. If Vercel Blob token is configured, save directly to Vercel Blob (Private or Public store)
   if (blobToken) {
     try {
-      // Check for duplicate in Blob Store
+      // Check for duplicate in Blob Store via list
       try {
-        const existingBlob = await head(blobPath, { token: blobToken });
-        if (existingBlob) {
+        const checkList = await list({
+          prefix: `whitelist/${normalizedWallet}.json`,
+          token: blobToken,
+          limit: 1,
+        });
+        if (checkList.blobs && checkList.blobs.length > 0) {
           throw new Error('DUPLICATE_WALLET');
         }
       } catch (checkErr: any) {
         if (checkErr.message === 'DUPLICATE_WALLET') {
           throw checkErr;
         }
-        // 404 / NotFound is expected when blob does not exist yet
       }
 
       // JSON payload formatted for Vercel Blob
@@ -149,11 +159,10 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
             token: blobToken,
           });
         } catch (pubErr: any) {
-          throw new Error(`Vercel Blob put failed: ${privErr.message || pubErr.message}`);
+          throw new Error(`Vercel Blob save failed: ${privErr.message || pubErr.message}`);
         }
       }
 
-      savedToBlob = true;
       console.log(`[Vercel Blob] Successfully saved wallet ${trimmed} to: ${blobResult.pathname || blobPath}`);
     } catch (err: any) {
       if (err.message === 'DUPLICATE_WALLET') {
@@ -167,9 +176,9 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
   }
 
   // 2. Dual-save to Neon Postgres if configured
-  const sql = getPostgresClient();
-  if (sql) {
-    try {
+  try {
+    const sql = await getPostgresClient();
+    if (sql) {
       await initPostgres();
       const existing = await sql`
         SELECT wallet FROM whitelist WHERE LOWER(wallet) = LOWER(${trimmed}) LIMIT 1
@@ -181,12 +190,12 @@ export async function insertWallet(wallet: string): Promise<WalletRecord> {
         INSERT INTO whitelist (wallet)
         VALUES (${trimmed})
       `;
-    } catch (err: any) {
-      if (err.message === 'DUPLICATE_WALLET' || err.code === '23505') {
-        throw new Error('DUPLICATE_WALLET');
-      }
-      console.warn('[PostgreSQL Sync Warning]:', err.message);
     }
+  } catch (err: any) {
+    if (err.message === 'DUPLICATE_WALLET' || err.code === '23505') {
+      throw new Error('DUPLICATE_WALLET');
+    }
+    console.warn('[PostgreSQL Sync Warning]:', err.message);
   }
 
   // 3. Fallback / Memory Store sync
@@ -217,7 +226,6 @@ export async function getWhitelistedWallets(): Promise<{ count: number; wallets:
 
       if (response.blobs && response.blobs.length > 0) {
         const wallets: WalletRecord[] = response.blobs.map((b) => {
-          // Extract wallet from pathname: whitelist/0x123...json
           const cleanName = b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
           return {
             wallet: cleanName,
@@ -240,16 +248,16 @@ export async function getWhitelistedWallets(): Promise<{ count: number; wallets:
   }
 
   // 2. Fetch from PostgreSQL if available
-  const sql = getPostgresClient();
-  if (sql) {
-    try {
+  try {
+    const sql = await getPostgresClient();
+    if (sql) {
       await initPostgres();
       const rows = await sql`
         SELECT wallet, submitted_at
         FROM whitelist
         ORDER BY submitted_at DESC
       `;
-      const wallets: WalletRecord[] = rows.map((r) => ({
+      const wallets: WalletRecord[] = rows.map((r: any) => ({
         wallet: r.wallet,
         submittedAt: new Date(r.submitted_at).toISOString(),
       }));
@@ -257,9 +265,9 @@ export async function getWhitelistedWallets(): Promise<{ count: number; wallets:
         count: wallets.length,
         wallets,
       };
-    } catch (err) {
-      console.error('[Postgres Query Error]:', err);
     }
+  } catch (err) {
+    console.error('[Postgres Query Error]:', err);
   }
 
   // 3. Fallback to Memory Store

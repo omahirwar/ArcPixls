@@ -47,8 +47,8 @@ export default async function handler(req: any, res: any) {
       if (err.message === 'INVALID_ADDRESS') {
         return res.status(400).json({ error: 'Enter a valid EVM address (0x followed by 40 hex characters).' });
       }
-      console.error('Error inserting wallet into Neon PostgreSQL:', err);
-      return res.status(500).json({ error: 'Database error while saving wallet submission.' });
+      console.error('Error inserting wallet:', err);
+      return res.status(500).json({ error: err.message || 'Error saving wallet submission.' });
     }
   }
 
