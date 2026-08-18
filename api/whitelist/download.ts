@@ -1,7 +1,24 @@
-import { getWhitelistedWallets } from '../../lib/db';
+import { list } from '@vercel/blob';
+
+function getBlobToken(): string | undefined {
+  if (process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN.trim() !== '') {
+    return process.env.BLOB_READ_WRITE_TOKEN.trim();
+  }
+  if (process.env.VERCEL_BLOB_READ_WRITE_TOKEN && process.env.VERCEL_BLOB_READ_WRITE_TOKEN.trim() !== '') {
+    return process.env.VERCEL_BLOB_READ_WRITE_TOKEN.trim();
+  }
+  for (const [key, value] of Object.entries(process.env)) {
+    if (typeof value === 'string' && value.startsWith('vercel_blob_rw_')) {
+      return value.trim();
+    }
+    if (key.endsWith('_READ_WRITE_TOKEN') && typeof value === 'string' && value.length > 10) {
+      return value.trim();
+    }
+  }
+  return undefined;
+}
 
 export default async function handler(req: any, res: any) {
-  // Preserve CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -10,23 +27,28 @@ export default async function handler(req: any, res: any) {
     return res.status(200).end();
   }
 
-  if (req.method === 'GET') {
-    try {
-      const { wallets } = await getWhitelistedWallets();
+  try {
+    const blobToken = getBlobToken();
+    let textContent = '';
 
-      let csv = 'Wallet Address,Submitted At\n';
-      wallets.forEach((r) => {
-        csv += `"${r.wallet}","${r.submittedAt}"\n`;
+    if (blobToken) {
+      const response = await list({
+        prefix: 'whitelist/',
+        token: blobToken,
       });
 
-      res.setHeader('Content-Type', 'text/csv');
-      res.setHeader('Content-Disposition', 'attachment; filename="onchainapp_whitelisted_wallets.csv"');
-      return res.status(200).send(csv);
-    } catch (err) {
-      console.error('CSV Download Error:', err);
-      return res.status(500).json({ error: 'Failed to generate CSV download from Neon PostgreSQL.' });
-    }
-  }
+      const wallets = (response.blobs || []).map((b) => {
+        return b.pathname.replace(/^whitelist\//, '').replace(/\.json$/, '');
+      });
 
-  return res.status(405).json({ error: 'Method not allowed' });
+      textContent = wallets.join('\n');
+    }
+
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="whitelisted_wallets.txt"');
+    return res.status(200).send(textContent);
+  } catch (err: any) {
+    console.error('Download Whitelist Error:', err);
+    return res.status(500).json({ error: err.message || 'Failed to generate whitelist download file.' });
+  }
 }
